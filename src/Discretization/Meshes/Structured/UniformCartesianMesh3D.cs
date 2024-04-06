@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using MGroup.MSolve.Discretization.Meshes;
-
 namespace MGroup.MSolve.Discretization.Meshes.Structured
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+
 	public class UniformCartesianMesh3D : ICartesianMesh
 	{
 		private const int dim = 3;
@@ -156,6 +154,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				coords[d] = MinCoordinates[d] + nodeIdx[d] * dx[d];
 			}
+
 			return coords;
 		}
 
@@ -211,6 +210,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				throw new ArgumentException($"Element index must be an array with Length = {dim}");
 			}
+
 			for (int d = 0; d < dim; ++d)
 			{
 				if ((elementIdx[d] < 0) || (elementIdx[d] >= NumElements[d]))
@@ -237,6 +237,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				throw new ArgumentException($"Node index must be an array with Length = {dim}");
 			}
+
 			for (int d = 0; d < dim; ++d)
 			{
 				if ((nodeIdx[d] < 0) || (nodeIdx[d] >= NumNodes[d]))
@@ -421,6 +422,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					else if ((majorAxis == 2) && (minorAxis == 1)) mediumAxis = 0;
 					else throw new ArgumentException("Major and minors axes must be 0, 1 or 2 and different from each other");
 				}
+
 				return (majorAxis, mediumAxis, minorAxis);
 			}
 
@@ -455,6 +457,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					bool removedEntry = entries.Remove((min, axisOfMin));
 					Debug.Assert(removedEntry);
 				}
+
 				return sortedAxes;
 			}
 
@@ -491,6 +494,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					throw new ArgumentException("The provided permutation array for the order of nodes in each element" +
 						$" must have {numNodesPerElement} entries");
 				}
+
 				if (!elementNodeOrderPermutation.AreContiguousUniqueIndices())
 				{
 					throw new ArgumentException("Invalid permutation array for the order of nodes in each element." +

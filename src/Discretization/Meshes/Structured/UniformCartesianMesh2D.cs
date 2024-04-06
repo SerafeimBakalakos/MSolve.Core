@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using MGroup.MSolve.Discretization.Meshes;
-
 //TODO: Allow client to control the major/minor/etc axes for numbering elements independently of vertices.
 //TODO: Builder should be in a different file (and not nested). Checking the params must be done in the public constructor.
 //      Invalid builder properties that will not be checked by the constructor, must be checked by the builder.
 namespace MGroup.MSolve.Discretization.Meshes.Structured
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+
 	public class UniformCartesianMesh2D : ICartesianMesh
 	{
 		private const int dim = 2;
@@ -212,6 +210,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				throw new ArgumentException($"Node index must be an array with Length = {dim}");
 			}
+
 			for (int d = 0; d < dim; ++d)
 			{
 				if ((nodeIdx[d] < 0) || (nodeIdx[d] >= NumNodes[d]))
@@ -292,7 +291,6 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 				return this;
 			}
 
-			
 			/// <summary>
 			/// Configures the order of nodes in each Quad4 element of the mesh. By default this order is: 
 			/// node0 = (-1, -1), node1 = (+1, -1), node2 = (+1, +1), node3 = (-1, +1), 
@@ -367,6 +365,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					majorAxisFinal = axisMajorChoice;
 					minorAxisFinal = majorAxisFinal == 0 ? 1 : 0;
 				}
+
 				return (majorAxisFinal, minorAxisFinal);
 			}
 
@@ -408,6 +407,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					throw new ArgumentException("The provided permutation array for the order of nodes in each element" +
 						$" must have {numNodesPerElement} entries");
 				}
+
 				if (!elementNodeOrderPermutation.AreContiguousUniqueIndices())
 				{
 					throw new ArgumentException("Invalid permutation array for the order of nodes in each element." +
