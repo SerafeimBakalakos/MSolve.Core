@@ -11,11 +11,12 @@ using MGroup.MSolve.Geometry.Shapes;
 
 namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 {
-	public class UnstructuredMesh : IUnstructuredMesh, I2DInteractiveMesh
+	public class BidirectionalUnstructuredMesh : IUnstructuredMesh, I2DInteractiveMesh
 	{
 		private readonly IDomainBoundary boundary;
+		private IReadOnlyDictionary<int, HashSet<int>> elementsOfNodes;
 
-		public UnstructuredMesh(IDomainBoundary boundary = null)
+		public BidirectionalUnstructuredMesh(IDomainBoundary boundary = null)
 		{
 			if (boundary == null)
 			{
@@ -30,6 +31,29 @@ namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 		public List<double[]> Nodes { get; } = new List<double[]>();
 
 		public List<(CellType cellType, int[] nodes)> Elements { get; } = new List<(CellType, int[])>();
+
+		public void ConnectComponents()
+		{
+			// Connect cells to vertices
+			var nodesToElements = new Dictionary<int, HashSet<int>>();
+			for (int e = 0; e < Elements.Count; ++e)
+			{
+				(_, int[] nodesOfElement) = Elements[e];
+				foreach (int node in nodesOfElement)
+				{
+					bool exists = nodesToElements.TryGetValue(node, out HashSet<int> elementsOfThisNode);
+					if (!exists)
+					{
+						elementsOfThisNode = new HashSet<int>();
+						nodesToElements.Add(node, elementsOfThisNode);
+					}
+
+					elementsOfThisNode.Add(e);
+				}
+			}
+
+			this.elementsOfNodes = nodesToElements;
+		}
 
 		public IEnumerable<(int elementID, CellType cellType, int[] nodeIDs)> EnumerateElements()
 		{
@@ -50,6 +74,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 		public int[] FindElementsContainingPoint(CartesianPoint point, int startingElement = int.MinValue)
 		{
 			// TODO: handle cases where the point lies on an element edge or node.
+			// TODO: Do it by spreading around the starting cell, breadth-first-search
 			var containingElements = new List<int>();
 			for (int e = 0; e < Elements.Count; ++e)
 			{
@@ -101,20 +126,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 			return internalElements.ToArray();
 		}
 
-		public ISet<int> FindElementsWithNode(int nodeId)
-		{
-			var neighboringElements = new HashSet<int>();
-			for (int e = 0; e < Elements.Count; ++e)
-			{
-				(_, int[] nodesOfElement) = Elements[e];
-				if (Array.IndexOf<int>(nodesOfElement, nodeId) > -1)
-				{
-					neighboringElements.Add(e);
-				}
-			}
-
-			return neighboringElements;
-		}
+		public ISet<int> FindElementsWithNode(int nodeId) => new HashSet<int>(elementsOfNodes[nodeId]);
 
 		public int[] FindNodesInsideCircle(Circle2D circle,bool findBoundaryNodes = true, int startingElement = int.MinValue)
 		{
@@ -133,7 +145,10 @@ namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 			return selectedNodes.ToArray();
 		}
 
-		public bool IsPointInsideBoundary(CartesianPoint point) => boundary.IsInside(point);
+		public bool IsPointInsideBoundary(CartesianPoint point)
+		{
+			return boundary.IsInside(point);
+		}
 
 		private IReadOnlyList<double[]> GetNodalCoordsOfElement(int element)
 		{
