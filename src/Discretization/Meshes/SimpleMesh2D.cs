@@ -3,24 +3,25 @@ using System.Linq;
 using MGroup.MSolve.Geometry.Coordinates;
 using MGroup.MSolve.Geometry.Shapes;
 using MGroup.MSolve.Discretization.Entities;
+using MGroup.MSolve.Core.Discretization.Meshes.Boundaries;
 
 namespace MGroup.MSolve.Discretization.Meshes
 {
-    /// <summary>
-    /// Unoptimized. Uses little storage. All search operations take linear time: O(nodesCount) and O(elementsCount).
-    /// </summary>
-    /// <typeparam name="TNode"></typeparam>
-    /// <typeparam name="TElement"></typeparam>
-    public class SimpleMesh2D<TNode, TElement>: IMesh2D<TNode, TElement>
+	/// <summary>
+	/// Unoptimized. Uses little storage. All search operations take linear time: O(nodesCount) and O(elementsCount).
+	/// </summary>
+	/// <typeparam name="TNode"></typeparam>
+	/// <typeparam name="TElement"></typeparam>
+	public class SimpleMesh2D<TNode, TElement>: IMesh2D<TNode, TElement>
         where TNode : INode
         where TElement : class, ICell<TNode>
     {
-        private readonly IDomain2DBoundary boundary;
+        private readonly IDomainBoundary boundary;
 
         public IReadOnlyList<TNode> Nodes { get; }
         public IReadOnlyList<TElement> Elements { get; }
 
-        public SimpleMesh2D(IReadOnlyList<TNode> vertices, IReadOnlyList<TElement> faces, IDomain2DBoundary boundary)
+        public SimpleMesh2D(IReadOnlyList<TNode> vertices, IReadOnlyList<TElement> faces, IDomainBoundary boundary)
         {
             this.Nodes = vertices;
             this.Elements = faces;
