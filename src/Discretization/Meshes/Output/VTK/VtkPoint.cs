@@ -5,7 +5,6 @@ namespace MGroup.MSolve.Discretization.Meshes.Output.VTK
 {
     /// <summary>
     /// Vertex used to represent VTK grids.
-    /// Authors: Serafeim Bakalakos
     /// </summary>
     public class VtkPoint
     {

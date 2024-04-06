@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using MGroup.MSolve.Discretization.Meshes;
 
@@ -6,7 +6,6 @@ namespace MGroup.MSolve.Discretization.Meshes.Output.VTK
 {
     /// <summary>
     /// Cell used to represent VTK grids.
-    /// Authors: Serafeim Bakalakos
     /// </summary>
     public class VtkCell
     {

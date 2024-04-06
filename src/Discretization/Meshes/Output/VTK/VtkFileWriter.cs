@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -11,7 +11,6 @@ namespace MGroup.MSolve.Discretization.Meshes.Output.VTK
 {
     /// <summary>
     /// Writes meshes, scalars, vectors and tensor fields to .vtk output files. Then these files can be opened in Paraview.
-    /// Authors: Serafeim Bakalakos
     /// </summary>
     public class VtkFileWriter : IDisposable
     {
