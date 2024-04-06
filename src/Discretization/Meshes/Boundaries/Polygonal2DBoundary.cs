@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 using MGroup.MSolve.Geometry.Coordinates;
 using MGroup.MSolve.Geometry.Shapes;
@@ -11,7 +11,7 @@ namespace MGroup.MSolve.Core.Discretization.Meshes.Boundaries
 
 		public Polygonal2DBoundary(IReadOnlyList<CartesianPoint> vertices)
 		{
-			polygon = ConvexPolygon2D.CreateUnsafe(vertices);
+			polygon = ConvexPolygon2D.Create(vertices, false);
 		}
 
 		public bool IsInside(CartesianPoint point)

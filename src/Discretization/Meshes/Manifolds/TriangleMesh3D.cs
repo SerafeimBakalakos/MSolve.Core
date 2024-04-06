@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-
 namespace MGroup.MSolve.Discretization.Meshes.Manifolds
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using System.Text;
+
+	/// <summary>
+	/// Represents a surface in a 3D space, using triangular cells.
+	/// </summary>
 	public class TriangleMesh3D
 	{
 		public List<int[]> Cells { get; } = new List<int[]>();
