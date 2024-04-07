@@ -2,13 +2,13 @@
 //      2D or 3D, the coordinates will not be used.
 namespace MGroup.MSolve.Discretization
 {
-    /// <summary>
-    /// Tagging interface for discrete point where interesting quantities are known or computed. E.g. in FEM such points are 
-    /// called nodes.
-    /// Authors: Serafeim Bakalakos
-    /// </summary>
-    public interface IDiscretePoint
-    {
-        int ID { get; }
-    }
+	/// <summary>
+	/// Tagging interface for discrete point where interesting quantities are known or computed. E.g. in FEM such points are 
+	/// called nodes.
+	/// Authors: Serafeim Bakalakos
+	/// </summary>
+	public interface IDiscretePoint
+	{
+		int ID { get; }
+	}
 }

@@ -1,11 +1,12 @@
-using System.Collections.Generic;
-using System.Linq;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Discretization.Embedding
 {
+	using System.Collections.Generic;
+	using System.Linq;
+
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Discretization.Dofs;
+	using MGroup.MSolve.Discretization.Entities;
+
 	public class ElementEmbedder : IElementDofEnumerator
 	{
 		private readonly IElementType embeddedElement;
@@ -112,6 +113,7 @@ namespace MGroup.MSolve.Discretization.Embedding
 						}
 					}
 				}
+
 				row += dependentDOFs;
 
 				var independentEmbeddedDOFs = embeddedElement.DofEnumerator.GetDofTypesForMatrixAssembly(embeddedElement)[nodeOrderInEmbeddedElement].Except(embeddedNode.DependentDOFs).ToArray();
@@ -209,8 +211,10 @@ namespace MGroup.MSolve.Discretization.Embedding
 					currentNode = node;
 					nodeDOFs = new List<IDofType>();
 				}
+
 				nodeDOFs.Add(superElement.Key.DOF);
 			}
+
 			if (nodeDOFs != null)
 				dofs.Add(nodeDOFs);
 
@@ -249,8 +253,10 @@ namespace MGroup.MSolve.Discretization.Embedding
 					currentNode = node;
 					nodeDOFs = new List<IDofType>();
 				}
+
 				nodeDOFs.Add(superElement.Key.DOF);
 			}
+
 			if (nodeDOFs != null)
 				dofs[nodesDictionary[currentNode]] = nodeDOFs;
 			//dofs.Add(nodeDOFs);
@@ -271,9 +277,11 @@ namespace MGroup.MSolve.Discretization.Embedding
 						nodes.Add(currentNode);
 					currentNode = node;
 				}
+
 				//if (nodes.IndexOf(node) < 0)
 				//    nodes.Add(node);
 			}
+
 			if (currentNode != null)
 				nodes.Add(currentNode);
 

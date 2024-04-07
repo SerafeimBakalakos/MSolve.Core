@@ -1,11 +1,11 @@
-﻿using System;
-using MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.Tests.Commons;
-using Xunit;
-
-namespace MGroup.MSolve.Numerics.Tests.Interpolation.Extrapolation
+﻿namespace MGroup.MSolve.Numerics.Tests.Interpolation.Extrapolation
 {
+	using System;
+	using MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.Tests.Commons;
+	using Xunit;
+
 	/// <summary>
 	/// Unit testing for <see cref="ExtrapolationGaussLegendre3x3"/>.
 	/// Authors: Serafeim Bakalakos

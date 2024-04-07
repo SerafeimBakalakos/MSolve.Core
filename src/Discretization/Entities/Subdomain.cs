@@ -1,14 +1,12 @@
-using System.Collections.Generic;
-
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Discretization.Entities;
-
 //TODO: remove code that calculates rhs vector components (nodal loads, constraints, etc). It should be moved to dedicated 
 //      classes like EquivalentLoadAssembler, so that it can be reused between subdomains of different projects (FEM, IGA, XFEM).
 //TODO: same for multiscale
 namespace MGroup.MSolve.Discretization.Entities
 {
+	using System.Collections.Generic;
+
+	using MGroup.MSolve.DataStructures;
+
 	public class Subdomain : ISubdomain
 	{
 		private readonly SortedDictionary<int, INode> nodes = new SortedDictionary<int, INode>();
@@ -42,13 +40,13 @@ namespace MGroup.MSolve.Discretization.Entities
 
 		//public void ClearMaterialStresses()
 		//{
-		//	foreach (Element element in Elements) element.ElementType.ClearMaterialStresses();
+		//  foreach (Element element in Elements) element.ElementType.ClearMaterialStresses();
 		//}
 
 		public void DefineNodesFromElements()
 		{
 			nodes.Clear();
-						
+
 			foreach (IElementType element in Elements)
 			{
 				foreach (var node in element.Nodes)
@@ -70,10 +68,10 @@ namespace MGroup.MSolve.Discretization.Entities
 
 		//public void ResetConstitutiveLawModified()
 		//{
-		//	this.LinearSystemModified = false;
-		//	foreach (IElementType element in Elements) element.ResetConstitutiveLawModified();
+		//  this.LinearSystemModified = false;
+		//  foreach (IElementType element in Elements) element.ResetConstitutiveLawModified();
 		//}
-		
+
 		public void SaveConstitutiveLawState(IHaveState externalState)
 		{
 			foreach (IElementType element in Elements) element.SaveConstitutiveLawState(externalState);

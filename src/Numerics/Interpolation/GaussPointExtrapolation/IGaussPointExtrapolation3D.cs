@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
+﻿namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Calculates extrapolations of scalar, vector and tensor fields from the integration points of a quadrature (integration 
 	/// rule). This can be done for any point, but utility methods for directly outputting the extrapolated fields at the nodes

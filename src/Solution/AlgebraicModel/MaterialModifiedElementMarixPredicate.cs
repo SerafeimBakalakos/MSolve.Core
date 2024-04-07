@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using MGroup.MSolve.Discretization;
-
 namespace MGroup.MSolve.Solution.AlgebraicModel
 {
+	using MGroup.MSolve.Discretization;
+
 	public class MaterialModifiedElementMarixPredicate : IElementMatrixPredicate
 	{
 		// GOAT: This was the original implementation

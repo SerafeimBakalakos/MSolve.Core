@@ -1,9 +1,9 @@
-using System.Collections.Generic;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Numerics.Interpolation.Inverse
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization.Entities;
+
 	/// <summary>
 	/// Inverse mapping of the isoparametric interpolation of a triangular finite element with 3 nodes. Since the original 
 	/// mapping is linear, there are analytic formulas.

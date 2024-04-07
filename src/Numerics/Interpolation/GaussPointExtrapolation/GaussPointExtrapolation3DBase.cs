@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
+﻿namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Basic implementation of <see cref="IGaussPointExtrapolation2D"/>.
 	/// Authors: Dimitris Tsapetis
@@ -214,6 +214,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 				{
 					nodalExtrapolationFunctions[i] = EvaluateExtrapolationFunctionsAt(nodes[i]);
 				}
+
 				cachedExtrapolationFunctionsAtNodes.Add(interpolation, nodalExtrapolationFunctions);
 			}
 

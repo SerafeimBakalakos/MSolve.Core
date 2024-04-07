@@ -1,11 +1,10 @@
-using MGroup.MSolve.Discretization.BoundaryConditions;
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Solution.LinearSystem;
-
-using System.Collections.Generic;
-
 namespace MGroup.MSolve.AnalysisWorkflow.Providers
 {
+	using MGroup.MSolve.Discretization.BoundaryConditions;
+	using MGroup.MSolve.Discretization.Dofs;
+
+	using System.Collections.Generic;
+
 	public interface IAnalyzerProvider
 	{
 		void Reset();

@@ -44,6 +44,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				this.numCartesianCells[d] = numNodes[d] - 1;
 			}
+
 			NumElementsTotal = numSimplicesPerCartesianCell * numCartesianCells[0] * numCartesianCells[1] * numCartesianCells[2];
 
 			dx = new double[dim];
@@ -189,6 +190,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				coords[d] = MinCoordinates[d] + nodeIdx[d] * dx[d];
 			}
+
 			return coords;
 		}
 
@@ -245,6 +247,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				throw new ArgumentException($"Element index must be an array with length = {dim + 1}");
 			}
+
 			for (int d = 0; d < dim; ++d)
 			{
 				if ((elementIdx[d] < 0) || (elementIdx[d] >= numCartesianCells[d]))
@@ -252,6 +255,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					throw new ArgumentException($"Element index along dimension {d} must belong in [0, {numCartesianCells[d]})");
 				}
 			}
+
 			if ((elementIdx[dim] < 0) || (elementIdx[dim] >= numSimplicesPerCartesianCell))
 			{
 				throw new ArgumentException($"Element index entry {dim} must belong in [0, {numSimplicesPerCartesianCell})");
@@ -275,6 +279,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				throw new ArgumentException($"Node index must be an array with length = {dim}");
 			}
+
 			for (int d = 0; d < dim; ++d)
 			{
 				if ((nodeIdx[d] < 0) || (nodeIdx[d] >= NumNodes[d]))
@@ -413,6 +418,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					else if ((majorAxis == 2) && (minorAxis == 1)) mediumAxis = 0;
 					else throw new ArgumentException("Major and minors axes must be 0, 1 or 2 and different from each other");
 				}
+
 				return (majorAxis, mediumAxis, minorAxis);
 			}
 
@@ -447,6 +453,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					bool removedEntry = entries.Remove((min, axisOfMin));
 					Debug.Assert(removedEntry);
 				}
+
 				return sortedAxes;
 			}
 

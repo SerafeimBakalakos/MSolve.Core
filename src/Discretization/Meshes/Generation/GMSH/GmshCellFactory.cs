@@ -1,8 +1,8 @@
 //TODO: Extend this to 3D cells
-using MGroup.MSolve.Discretization;
-
 namespace MGroup.MSolve.Core.Discretization.Meshes.Generation.GMSH
 {
+	using MGroup.MSolve.Discretization;
+
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;

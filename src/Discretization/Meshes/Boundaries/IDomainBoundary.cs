@@ -1,7 +1,7 @@
-using MGroup.MSolve.Geometry.Coordinates;
-
 namespace MGroup.MSolve.Core.Discretization.Meshes.Boundaries
 {
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	public interface IDomainBoundary
 	{
 		/// <summary>

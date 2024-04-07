@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using MGroup.MSolve.Discretization.Meshes;
-
 namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 {
+	using System.Collections.Generic;
+
 	public interface IUnstructuredMesh
 	{
 		/// <summary>

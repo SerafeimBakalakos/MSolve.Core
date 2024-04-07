@@ -136,6 +136,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				coords[d] = MinCoordinates[d] + nodeIdx[d] * dx[d];
 			}
+
 			return coords;
 		}
 
@@ -184,6 +185,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				throw new ArgumentException($"Element index must be an array with Length = {dim}");
 			}
+
 			for (int d = 0; d < dim; ++d)
 			{
 				if ((elementIdx[d] < 0) || (elementIdx[d] >= NumElements[d]))

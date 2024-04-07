@@ -1,7 +1,7 @@
-﻿using MGroup.MSolve.Geometry.Coordinates;
-
 namespace MGroup.MSolve.Core.Discretization.Meshes.Boundaries
 {
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	public class Rectangular2DBoundary : IDomainBoundary
 	{
 		private readonly double minX;
@@ -19,8 +19,14 @@ namespace MGroup.MSolve.Core.Discretization.Meshes.Boundaries
 
 		public bool IsInside(CartesianPoint point)
 		{
-			if (point.X > minX && point.X < maxX && point.Y > minY && point.Y < maxY) return true;
-			else return false;
+			if ((point.X > minX) && (point.X < maxX) && (point.Y > minY) && (point.Y < maxY))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 }

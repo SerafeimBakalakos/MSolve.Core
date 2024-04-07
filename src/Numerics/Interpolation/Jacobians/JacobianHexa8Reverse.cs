@@ -1,11 +1,12 @@
-using System;
-using System.Collections.Generic;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Discretization.Entities;
-
 //jacobianInverse and jacobianDeterminants can only be calculated during initialization (at the first configuration) and then cached
 namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Discretization.Entities;
+
 	public class JacobianHexa8Reverse
 	{
 		private static double nodeNorm = 1d;
@@ -26,6 +27,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 			{
 				initialCoordinates[j] = new double[] { elementNodes[j].X, elementNodes[j].Y, elementNodes[j].Z, };
 			}
+
 			initialCoordinatesReshaped = new double[nGaussPoints][,];
 			jacobians = new double[nGaussPoints][,];
 			jacobianInverse = new Matrix[nGaussPoints];
@@ -55,7 +57,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 						jacobians[gpoint][m, n] = 0;
 						for (int p = 0; p < 8; p++)
 						{
-							jacobians[gpoint][m, n] += shapeFunctionNaturalDerivatives[gpoint][p,m] * initialCoordinatesReshaped[gpoint][p, n];
+							jacobians[gpoint][m, n] += shapeFunctionNaturalDerivatives[gpoint][p, m] * initialCoordinatesReshaped[gpoint][p, n];
 						}
 					}
 				}
@@ -71,12 +73,13 @@ namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 
 				//if (jacobianDeterminant < 0)
 				//{
-				//	throw new InvalidOperationException("The Jacobian Determinant is negative.");
+				//  throw new InvalidOperationException("The Jacobian Determinant is negative.");
 				//}
 				if (jacobianDeterminant / (nodeNorm != 0 ? nodeNorm : 1d) < DeterminantTolerance)
 				{
 					throw new InvalidOperationException($"The Jacobian Determinant is below {DeterminantTolerance}.");
 				}
+
 				jacobianDeterminants[gpoint] = jacobianDeterminant;
 
 				//
@@ -129,6 +132,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 			{
 				initialCoordinates[j] = new double[] { elementNodes[j].X, elementNodes[j].Y, elementNodes[j].Z, };
 			}
+
 			nodeCoordinatesReshaped = new double[nGaussPoints][,];
 			jacobians = new double[nGaussPoints][,];
 			jacobianInverse = new double[nGaussPoints][,];
@@ -174,12 +178,13 @@ namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 
 				//if (jacobianDeterminant < 0)
 				//{
-				//	throw new InvalidOperationException("The Jacobian Determinant is negative.");
+				//  throw new InvalidOperationException("The Jacobian Determinant is negative.");
 				//}
 				if (jacobianDeterminant / (nodeNorm != 0 ? nodeNorm : 1d) < DeterminantTolerance)
 				{
 					throw new InvalidOperationException($"The Jacobian Determinant is below {DeterminantTolerance}.");
 				}
+
 				jacobianDeterminants[gpoint] = jacobianDeterminant;
 
 				//
@@ -237,7 +242,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 						jacobiansDeformedMatrices[npoint][m, n] = 0;
 						for (int p = 0; p < 8; p++)
 						{
-							jacobiansDeformedMatrices[npoint][m, n] += shapeFunctionNaturalDerivatives[npoint][p,m] * jacobiansDeformedMatricesb[p, n];
+							jacobiansDeformedMatrices[npoint][m, n] += shapeFunctionNaturalDerivatives[npoint][p, m] * jacobiansDeformedMatricesb[p, n];
 						}
 					}
 				}

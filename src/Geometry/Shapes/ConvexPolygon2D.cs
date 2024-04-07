@@ -26,6 +26,7 @@ namespace MGroup.MSolve.Geometry.Shapes
 			{
 				edges[i] = new LineSegment2D(vertices[i], vertices[(i + 1) % vertices.Count]);
 			}
+
 			this.Edges = edges;
 		}
 
@@ -71,6 +72,7 @@ namespace MGroup.MSolve.Geometry.Shapes
 				CartesianPoint vertex2 = Vertices[(vertexIdx + 1) % Vertices.Count];
 				sum += vertex1.X * vertex2.Y - vertex2.X * vertex1.Y;
 			}
+
 			return Math.Abs(0.5 * sum); // area would be negative if vertices were in counter-clockwise order
 		}
 
@@ -95,6 +97,7 @@ namespace MGroup.MSolve.Geometry.Shapes
 					result = !result;
 				}
 			}
+
 			return result;
 		}
 
@@ -108,6 +111,7 @@ namespace MGroup.MSolve.Geometry.Shapes
 				if (vertexPosition == CirclePointPosition.Outside) ++verticesOutsideCircle;
 				else if (vertexPosition == CirclePointPosition.Inside) ++verticesInsideCircle;
 			}
+
 			int verticesOnCircle = Vertices.Count - verticesOutsideCircle - verticesInsideCircle;
 
 			if (verticesOutsideCircle == Vertices.Count)
@@ -132,6 +136,7 @@ namespace MGroup.MSolve.Geometry.Shapes
 					++edgesPassingThroughPoint;
 				}
 			}
+
 			if (edgesPassingThroughPoint == 1) return PolygonPointPosition.OnEdge;
 			else if (edgesPassingThroughPoint == 2) return PolygonPointPosition.OnVertex;
 			else if (IsPointInsidePolygon(point)) return PolygonPointPosition.Inside;
@@ -174,12 +179,14 @@ namespace MGroup.MSolve.Geometry.Shapes
 				if (vertexPosition == CirclePointPosition.Outside) ++verticesOutsideCircle;
 				else if (vertexPosition == CirclePointPosition.Inside) ++verticesInsideCircle;
 			}
+
 			int verticesOnCircle = Vertices.Count - verticesOutsideCircle - verticesInsideCircle;
 
 			if (verticesOutsideCircle >= 1)
 			{
 				if ((verticesInsideCircle >= 1) || (verticesOnCircle >= 2)) return true;
 			}
+
 			return false;
 		}
 	}

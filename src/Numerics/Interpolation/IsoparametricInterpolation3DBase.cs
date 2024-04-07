@@ -1,16 +1,16 @@
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation.Inverse;
-using MGroup.MSolve.Numerics.Interpolation.Jacobians;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Numerics.Integration;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Discretization.Entities;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization;
-using System.Collections.Concurrent;
-
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation.Inverse;
+	using MGroup.MSolve.Numerics.Interpolation.Jacobians;
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Numerics.Integration;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Discretization.Entities;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization;
+	using System.Collections.Concurrent;
+
 	/// <summary>
 	/// Basic implementation of <see cref="IIsoparametricInterpolation3D"/>
 	/// Authors: Dimitris Tsapetis, Serafeim Bakalakos
@@ -78,6 +78,7 @@ namespace MGroup.MSolve.Numerics.Interpolation
 				interpolationsAtGPs[gp] = new EvalInterpolation3D(nodes, shapeFunctionsAtGPs[gp],
 					naturalShapeDerivativesAtGPs[gp], new IsoparametricJacobian3D(nodes, naturalShapeDerivativesAtGPs[gp]));
 			}
+
 			return interpolationsAtGPs;
 		}
 
@@ -104,6 +105,7 @@ namespace MGroup.MSolve.Numerics.Interpolation
 					GaussPoint gaussPoint = quadrature.IntegrationPoints[gp];
 					shapeFunctionsAtGPsArray[gp] = EvaluateAt(gaussPoint.Xi, gaussPoint.Eta, gaussPoint.Zeta);
 				}
+
 				cachedFunctionsAtGPs.TryAdd(quadrature, shapeFunctionsAtGPsArray);
 				return shapeFunctionsAtGPsArray;
 			}
@@ -133,6 +135,7 @@ namespace MGroup.MSolve.Numerics.Interpolation
 					GaussPoint gaussPoint = quadrature.IntegrationPoints[gp];
 					naturalGradientsAtGPsArray[gp] = EvaluateGradientsAt(gaussPoint.Xi, gaussPoint.Eta, gaussPoint.Zeta);
 				}
+
 				cachedNaturalGradientsAtGPs.TryAdd(quadrature, naturalGradientsAtGPsArray);
 				return naturalGradientsAtGPsArray;
 			}
@@ -151,6 +154,7 @@ namespace MGroup.MSolve.Numerics.Interpolation
 				y += shapeFunctionValues[i] * nodes[i].Y;
 				z += shapeFunctionValues[i] * nodes[i].Z;
 			}
+
 			return new CartesianPoint(x, y, z);
 		}
 

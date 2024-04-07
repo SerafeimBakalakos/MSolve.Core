@@ -1,16 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Linq;
-
-using MGroup.MSolve.Core.Discretization.Meshes.Boundaries;
-using MGroup.MSolve.Core.Discretization.Meshes.Unstructured;
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Geometry.Shapes;
-
 namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.MSolve.Core.Discretization.Meshes.Boundaries;
+	using MGroup.MSolve.Core.Discretization.Meshes.Unstructured;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Geometry.Shapes;
+
 	public class UnstructuredMesh : IUnstructuredMesh, I2DInteractiveMesh
 	{
 		private readonly IDomainBoundary boundary;
@@ -56,7 +53,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 				IReadOnlyList<double[]> nodesOfElement = GetNodalCoordsOfElement(e);
 				var outline = ConvexPolygon2D.CreateFromCoords(nodesOfElement);
 				PolygonPointPosition pos = outline.FindRelativePositionOfPoint(point);
-				if ((pos == PolygonPointPosition.Inside) || (pos == PolygonPointPosition.OnEdge) 
+				if ((pos == PolygonPointPosition.Inside) || (pos == PolygonPointPosition.OnEdge)
 					|| (pos == PolygonPointPosition.OnVertex))
 				{
 					containingElements.Add(e);
@@ -116,13 +113,13 @@ namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 			return neighboringElements;
 		}
 
-		public int[] FindNodesInsideCircle(Circle2D circle,bool findBoundaryNodes = true, int startingElement = int.MinValue)
+		public int[] FindNodesInsideCircle(Circle2D circle, bool findBoundaryNodes = true, int startingElement = int.MinValue)
 		{
 			var selectedNodes = new List<int>();
 			for (int n = 0; n < Nodes.Count; ++n) // O(nodesCount)
 			{
 				double[] coords = Nodes[n];
-				CirclePointPosition relativePosition = 
+				CirclePointPosition relativePosition =
 					circle.FindRelativePositionOfPoint(new CartesianPoint(coords[0], coords[1]));
 				if ((relativePosition == CirclePointPosition.Inside) ||
 					(findBoundaryNodes && (relativePosition == CirclePointPosition.On)))
@@ -130,6 +127,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 					selectedNodes.Add(n);
 				}
 			}
+
 			return selectedNodes.ToArray();
 		}
 
@@ -143,6 +141,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Unstructured
 			{
 				nodalCoords.Add(Nodes[node]);
 			}
+
 			return nodalCoords;
 		}
 	}

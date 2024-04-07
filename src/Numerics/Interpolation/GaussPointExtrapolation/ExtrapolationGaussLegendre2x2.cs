@@ -1,13 +1,13 @@
-﻿using System;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-//TODO: the order of the shape functions must be the same as the order of Gauss points in GaussLegendre2D.Order2x2 integration.  
+﻿//TODO: the order of the shape functions must be the same as the order of Gauss points in GaussLegendre2D.Order2x2 integration.  
 //      This is extremely error prone. Find a way to avoid this necessity (e.g. GaussLegendre2D provides the shape functions) or
 //      order the shape functions automatically (e.g. static fields that are ordered in a static constructor, which derives
 //      the order by looking at GaussLegendre2D.Order2x2. When this is done, remove the warning from GaussLegendre2D
 namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+	using System;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Calculates extrapolations of scalar, vector and tensor fields from the integration points of 2-by-2 Gauss-Legendre 
 	/// quadrature. This can be done at any point, but utility methods for directly outputting the extrapolated fields at the

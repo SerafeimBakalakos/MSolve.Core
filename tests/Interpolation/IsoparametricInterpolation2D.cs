@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.Tests.Commons;
-using Xunit;
-
-namespace MGroup.MSolve.Numerics.Tests.Interpolation
+﻿namespace MGroup.MSolve.Numerics.Tests.Interpolation
 {
+	using System;
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.Tests.Commons;
+	using Xunit;
+
 	/// <summary>
 	/// Unit testing for implentations of <see cref="IIsoparametricInterpolation2D"/>.
 	/// Authors: Serafeim Bakalakos
@@ -80,6 +80,7 @@ namespace MGroup.MSolve.Numerics.Tests.Interpolation
 				double eta = -1.0 + rand.NextDouble() * 2.0;
 				randomPoints[i] = new NaturalPoint(xi, eta);
 			}
+
 			return randomPoints;
 		}
 
@@ -97,6 +98,7 @@ namespace MGroup.MSolve.Numerics.Tests.Interpolation
 				double eta = rand.NextDouble() * xi;
 				randomPoints[i] = new NaturalPoint(xi, eta);
 			}
+
 			return randomPoints;
 		}
 	}

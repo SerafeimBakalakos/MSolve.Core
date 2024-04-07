@@ -5,11 +5,11 @@ namespace MGroup.MSolve.Solution.LinearSystem
 	/// Authors: Serafeim Bakalakos
 	/// </summary>
 	public interface ILinearSystemObserver
-    {
+	{
 		/// <summary>
 		/// It will be called before setting <see cref="IGlobalLinearSystem.Matrix"/>.
 		/// </summary>
-		void HandleMatrixWillBeSet(); 
+		void HandleMatrixWillBeSet();
 		//TODO: Why notify before changing the matrix instead of after. I assume it is to dispose unmanaged arrays. Shouldn't that be handled by destructors though? 
-    }
+	}
 }

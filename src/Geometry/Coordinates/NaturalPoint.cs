@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
-
-namespace MGroup.MSolve.Geometry.Coordinates
+﻿namespace MGroup.MSolve.Geometry.Coordinates
 {
-    /// <summary>
-    /// Point in a 3-dimensional cartesian coordinate system, which is local to the finite element. It can also represent points 
-    /// in 1-dimensional or 2-dimension spaces, but not all coordinates will be used. Immutable
-    /// Authors: Serafeim Bakalakos, Dimitris Tsapetis
-    /// </summary>
-    public class NaturalPoint : IPoint
+	/// <summary>
+	/// Point in a 3-dimensional cartesian coordinate system, which is local to the finite element. It can also represent points 
+	/// in 1-dimensional or 2-dimension spaces, but not all coordinates will be used. Immutable
+	/// Authors: Serafeim Bakalakos, Dimitris Tsapetis
+	/// </summary>
+	public class NaturalPoint : IPoint
 	{
 		protected readonly double xi;
 		protected readonly double eta;
@@ -40,21 +35,21 @@ namespace MGroup.MSolve.Geometry.Coordinates
 			this.zeta = coordinates[2];
 		}
 
-        public double X1 => xi;
+		public double X1 => xi;
 
-        public double X2 => eta;
+		public double X2 => eta;
 
-        public double X3 => zeta;
+		public double X3 => zeta;
 
-        /// <summary>
-        /// Vector with the coordinates of the point. Length = 3.
-        /// </summary>
-        public double[] Coordinates => new double[] { xi, eta, zeta };
+		/// <summary>
+		/// Vector with the coordinates of the point. Length = 3.
+		/// </summary>
+		public double[] Coordinates => new double[] { xi, eta, zeta };
 
-        /// <summary>
-        /// The coordinate of the point along local axis Xi.
-        /// </summary>
-        public double Xi => xi;
+		/// <summary>
+		/// The coordinate of the point along local axis Xi.
+		/// </summary>
+		public double Xi => xi;
 
 		/// <summary>
 		/// The coordinate of the point along local axis Eta.
@@ -66,6 +61,6 @@ namespace MGroup.MSolve.Geometry.Coordinates
 		/// </summary>
 		public double Zeta => zeta;
 
-        public override string ToString() => $"(xi, eta, zeta)=({xi}, {eta}, {zeta})";
-    }
+		public override string ToString() => $"(xi, eta, zeta)=({xi}, {eta}, {zeta})";
+	}
 }

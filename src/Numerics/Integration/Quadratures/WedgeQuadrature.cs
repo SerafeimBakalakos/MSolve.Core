@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MGroup.MSolve.Numerics.Integration;
-
-namespace MGroup.MSolve.Numerics.Integration.Quadratures
+﻿namespace MGroup.MSolve.Numerics.Integration.Quadratures
 {
+	using System;
+	using System.Collections.Generic;
+
 	/// <summary>
 	/// Enum class with the 2D integration rules for wedges of varying orders. These are not tensor product of
 	/// simple <see cref="GaussLegendre1D_old"/> rules. Quadrature rules were provided in https://www.code-aster.org/V2/doc/default/fr/man_r/r3/r3.01.01.pdf
 	/// Authors: Dimitris Tsapetis
 	/// </summary>
-	public sealed class WedgeQuadrature:IQuadrature3D
+	public sealed class WedgeQuadrature : IQuadrature3D
 	{
 		/// <summary>
 		/// 6-integration point quadrature for order 3 of axis x, and order 2 for both axis y and z.
@@ -66,10 +64,10 @@ namespace MGroup.MSolve.Numerics.Integration.Quadratures
 		);
 
 		private WedgeQuadrature(params GaussPoint[] points)
-	    {
-		    this.IntegrationPoints = new List<GaussPoint>(points);
-	    }
+		{
+			this.IntegrationPoints = new List<GaussPoint>(points);
+		}
 
-	    public IReadOnlyList<GaussPoint> IntegrationPoints { get; }
+		public IReadOnlyList<GaussPoint> IntegrationPoints { get; }
 	}
 }

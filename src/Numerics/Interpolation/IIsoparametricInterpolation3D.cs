@@ -1,14 +1,13 @@
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation.Inverse;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Discretization.Meshes;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation.Inverse;
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization;
+	using MGroup.MSolve.Discretization.Entities;
+
 	/// <summary>
 	/// Interpolation (or shape or basis) functions used by isoparametric finite elements. Instances are able to compute the 
 	/// values of the shape functions, their derivatives, the Jacobian of the matrix, etc.

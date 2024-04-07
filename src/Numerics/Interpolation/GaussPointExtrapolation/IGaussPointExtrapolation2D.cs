@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-//TODO: Vector2 and Tensor2D instead of double[]. Either that or always use double[], in which case vectors and tensors are 
+﻿//TODO: Vector2 and Tensor2D instead of double[]. Either that or always use double[], in which case vectors and tensors are 
 //      covered by the same method.
 namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.DataStructures;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Calculates extrapolations of scalar, vector and tensor fields from the integration points of a quadrature (integration 
 	/// rule). This can be done at any point, but utility methods for directly outputting the extrapolated fields at the nodes

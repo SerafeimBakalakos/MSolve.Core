@@ -1,18 +1,18 @@
-using System;
-using System.Collections.Generic;
-
-using MGroup.MSolve.Solution.LinearSystem;
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Discretization.Providers;
-
 namespace MGroup.MSolve.Solution.AlgebraicModel
 {
-    /// <summary>
-    /// Builds the matrix of the linear system that will be solved.
-    /// Authors: Serafeim Bakalakos
-    /// </summary>
-    public interface IGlobalMatrixAssembler
-    {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.MSolve.Solution.LinearSystem;
+	using MGroup.MSolve.Discretization;
+	using MGroup.MSolve.Discretization.Providers;
+
+	/// <summary>
+	/// Builds the matrix of the linear system that will be solved.
+	/// Authors: Serafeim Bakalakos
+	/// </summary>
+	public interface IGlobalMatrixAssembler
+	{
 		IGlobalMatrix CreateEmptyMatrix();
 
 		/// <summary>

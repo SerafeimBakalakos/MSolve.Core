@@ -1,92 +1,92 @@
-﻿using System;
-using MGroup.LinearAlgebra;
-using MGroup.LinearAlgebra.Matrices;
-
-namespace MGroup.MSolve.Geometry
+﻿namespace MGroup.MSolve.Geometry
 {
-    public class RotationMatrix
-    {
-        /**
-         * Calculates a rotation matrix from three orthonormal vectors.
-         *
-         * @param vectorX
-         *            The vector along the X axis
-         * @param vectorY
-         *            The vector along the Y axis
-         * @param vectorZ
-         *            The vector along the Z axis
-         * @return The rotation matrix
-         */
-        public static Matrix CalculateFromOrthonormalVectors(double[] vectorX, double[] vectorY, double[] vectorZ)
-        {
-            var rotationMatrix = Matrix.CreateZero(3, 3);
-            rotationMatrix[0, 0] = vectorX[0];
-            rotationMatrix[0, 1] = vectorY[0];
-            rotationMatrix[0, 2] = vectorZ[0];
+	using System;
 
-            rotationMatrix[1, 0] = vectorX[1];
-            rotationMatrix[1, 1] = vectorY[1];
-            rotationMatrix[1, 2] = vectorZ[1];
+	using MGroup.LinearAlgebra.Matrices;
 
-            rotationMatrix[2, 0] = vectorX[2];
-            rotationMatrix[2, 1] = vectorY[2];
-            rotationMatrix[2, 2] = vectorZ[2];
+	public class RotationMatrix
+	{
+		/**
+		 * Calculates a rotation matrix from three orthonormal vectors.
+		 *
+		 * @param vectorX
+		 *            The vector along the X axis
+		 * @param vectorY
+		 *            The vector along the Y axis
+		 * @param vectorZ
+		 *            The vector along the Z axis
+		 * @return The rotation matrix
+		 */
+		public static Matrix CalculateFromOrthonormalVectors(double[] vectorX, double[] vectorY, double[] vectorZ)
+		{
+			var rotationMatrix = Matrix.CreateZero(3, 3);
+			rotationMatrix[0, 0] = vectorX[0];
+			rotationMatrix[0, 1] = vectorY[0];
+			rotationMatrix[0, 2] = vectorZ[0];
 
-            return rotationMatrix;
-        }
+			rotationMatrix[1, 0] = vectorX[1];
+			rotationMatrix[1, 1] = vectorY[1];
+			rotationMatrix[1, 2] = vectorZ[1];
 
-        /**
-         * Calculates the rotations matrix given initial and rotated vectors.
-         *
-         * @param initialVector
-         *            The initial vector
-         * @param rotatedVector
-         *            The rotated vector
-         * @return The rotation matrix
-         */
-        public static Matrix CalculateRotationMatrix(double[] initialVector, double[] rotatedVector)
-        {
-            double[] initialVectorLocal = initialVector.Copy();
-            double[] rotatedVectorLocal = rotatedVector.Copy();
+			rotationMatrix[2, 0] = vectorX[2];
+			rotationMatrix[2, 1] = vectorY[2];
+			rotationMatrix[2, 2] = vectorZ[2];
 
-            double normInitial = initialVector.Norm2();
-            double normRotated = rotatedVector.Norm2();
-            initialVectorLocal.ScaleIntoThis(1d / normInitial);
-            rotatedVectorLocal.ScaleIntoThis(1d / normRotated);
+			return rotationMatrix;
+		}
 
-            double[] vectorSum = initialVectorLocal.Add(rotatedVectorLocal);
-            double vectorSumNorm = vectorSum.Norm2();
+		/**
+		 * Calculates the rotations matrix given initial and rotated vectors.
+		 *
+		 * @param initialVector
+		 *            The initial vector
+		 * @param rotatedVector
+		 *            The rotated vector
+		 * @return The rotation matrix
+		 */
+		public static Matrix CalculateRotationMatrix(double[] initialVector, double[] rotatedVector)
+		{
+			double[] initialVectorLocal = initialVector.Copy();
+			double[] rotatedVectorLocal = rotatedVector.Copy();
 
-            var rotationMatrix = Matrix.CreateZero(3, 3);
-            rotationMatrix[0, 0] = 1d;
-            rotationMatrix[1, 1] = 1d;
-            rotationMatrix[2, 2] = 1d;
+			double normInitial = initialVector.Norm2();
+			double normRotated = rotatedVector.Norm2();
+			initialVectorLocal.ScaleIntoThis(1d / normInitial);
+			rotatedVectorLocal.ScaleIntoThis(1d / normRotated);
 
-            // @Theo
-            rotationMatrix.AxpyIntoThis(rotatedVectorLocal.TensorProduct(initialVectorLocal), 2.0);
-            rotationMatrix.AxpyIntoThis(vectorSum.TensorProduct(vectorSum), -2.0 / (vectorSumNorm * vectorSumNorm));
-            //rotationMatrix.LinearCombinationGOAT(new[] { 2d }, new[] { Matrix2D.FromVector(rotatedVectorLocal.Data) * Matrix2D.FromVectorTranspose(initialVectorLocal.Data) });
-            //rotationMatrix.LinearCombinationGOAT(new[] { -2d / (vectorSumNorm * vectorSumNorm) }, new[] { Matrix2D.FromVector(vectorSum.Data) * Matrix2D.FromVectorTranspose(vectorSum.Data) });
+			double[] vectorSum = initialVectorLocal.Add(rotatedVectorLocal);
+			double vectorSumNorm = vectorSum.Norm2();
 
-            return rotationMatrix;
-        }
+			var rotationMatrix = Matrix.CreateZero(3, 3);
+			rotationMatrix[0, 0] = 1d;
+			rotationMatrix[1, 1] = 1d;
+			rotationMatrix[2, 2] = 1d;
 
-        public static Matrix CalculateRotationMatrixBeam2D(double phi)
-        {
-            var rotationMatrix = Matrix.CreateZero(3, 3);
-            rotationMatrix[0, 0] = Math.Cos(phi);
-            rotationMatrix[0, 1] = -Math.Sin(phi);
-            rotationMatrix[1, 0] = Math.Sin(phi);
-            rotationMatrix[1, 1] = Math.Cos(phi);
-            rotationMatrix[2, 2] = 1d;
+			// @Theo
+			rotationMatrix.AxpyIntoThis(rotatedVectorLocal.TensorProduct(initialVectorLocal), 2.0);
+			rotationMatrix.AxpyIntoThis(vectorSum.TensorProduct(vectorSum), -2.0 / (vectorSumNorm * vectorSumNorm));
+			//rotationMatrix.LinearCombinationGOAT(new[] { 2d }, new[] { Matrix2D.FromVector(rotatedVectorLocal.Data) * Matrix2D.FromVectorTranspose(initialVectorLocal.Data) });
+			//rotationMatrix.LinearCombinationGOAT(new[] { -2d / (vectorSumNorm * vectorSumNorm) }, new[] { Matrix2D.FromVector(vectorSum.Data) * Matrix2D.FromVectorTranspose(vectorSum.Data) });
 
-            return rotationMatrix;
-        }
+			return rotationMatrix;
+		}
 
-        private RotationMatrix()
-        {
-            // DO Nothing
-        }
+		public static Matrix CalculateRotationMatrixBeam2D(double phi)
+		{
+			var rotationMatrix = Matrix.CreateZero(3, 3);
+			rotationMatrix[0, 0] = Math.Cos(phi);
+			rotationMatrix[0, 1] = -Math.Sin(phi);
+			rotationMatrix[1, 0] = Math.Sin(phi);
+			rotationMatrix[1, 1] = Math.Cos(phi);
+			rotationMatrix[2, 2] = 1d;
 
-    }
+			return rotationMatrix;
+		}
+
+		private RotationMatrix()
+		{
+			// DO Nothing
+		}
+
+	}
 }

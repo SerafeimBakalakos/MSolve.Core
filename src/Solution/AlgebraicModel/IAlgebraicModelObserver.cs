@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace MGroup.MSolve.Solution.AlgebraicModel
 {
 	public interface IAlgebraicModelObserver

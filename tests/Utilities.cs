@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MGroup.Tests.Commons
+﻿namespace MGroup.Tests.Commons
 {
+	using System;
+	using System.Collections.Generic;
+
 	public static class Utilities
 	{
 		public static bool AreTensorsEqual(IReadOnlyList<double[]> tensors1, IReadOnlyList<double[]> tensors2, double tolerance)
@@ -16,6 +16,7 @@ namespace MGroup.Tests.Commons
 					if (!AreValuesEqual(tensors1[i][j], tensors2[i][j], tolerance)) return false;
 				}
 			}
+
 			return true;
 		}
 

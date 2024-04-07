@@ -1,28 +1,28 @@
-﻿
-
-
-// This extrapolation is used for Tri6 interpolation with 3 Gauss points, where the node and GP numbering is:
-//
-// eta
-// ^
-// | s
-// | ^
-//   |
-// 1
-// | \
-// | 1 \
-// |     \
-// 4       3
-// |         \
-// | 2      0  \    --> r
-// |             \
-// 2 ---- 5 ----- 0   --> xi
-
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
+﻿namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+
+
+
+	// This extrapolation is used for Tri6 interpolation with 3 Gauss points, where the node and GP numbering is:
+	//
+	// eta
+	// ^
+	// | s
+	// | ^
+	//   |
+	// 1
+	// | \
+	// | 1 \
+	// |     \
+	// 4       3
+	// |         \
+	// | 2      0  \    --> r
+	// |             \
+	// 2 ---- 5 ----- 0   --> xi
+
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Calculates extrapolations of scalar, vector and tensor fields from the integration points of 
 	/// <see cref="TriangleSymmetricGaussianQuadrature.Order2Points3"/>. This can be done at any point, but utility methods for  

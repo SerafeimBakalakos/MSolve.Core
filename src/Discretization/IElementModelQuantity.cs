@@ -1,8 +1,7 @@
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Discretization
 {
+	using MGroup.MSolve.Discretization.Dofs;
+
 	public interface IElementModelQuantity : IElementModelQuantity<IDofType>
 	{
 

@@ -1,7 +1,7 @@
-using MGroup.MSolve.Discretization.Dofs;
-
 namespace MGroup.MSolve.Discretization.BoundaryConditions
 {
+	using MGroup.MSolve.Discretization.Dofs;
+
 	public interface INodalBoundaryCondition : INodalBoundaryCondition<IDofType>
 	{
 

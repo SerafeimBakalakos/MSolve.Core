@@ -1,8 +1,8 @@
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Solution.LinearSystem;
-
 namespace MGroup.MSolve.AnalysisWorkflow.Providers
 {
+	using MGroup.MSolve.DataStructures;
+	using MGroup.MSolve.Solution.LinearSystem;
+
 	public interface INonLinearProvider : IAnalyzerProvider
 	{
 		IGlobalVector CalculateResponseIntegralVector(IGlobalVector solution);

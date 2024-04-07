@@ -1,14 +1,13 @@
-using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Discretization.Entities;
-using MGroup.MSolve.Geometry.Coordinates;
-
 //TODO: Elements and Subdomains should not be stored inside the node by default. E.g. for elements there should be 
 //      a lightweiht unidirectional mesh class, where only elements store nodes, and a birectional mesh class, where a 
 //      Dictionary of nodes -> elements is stored. Thus extra memory for these associations is not always required.
 namespace MGroup.MSolve.Discretization.Entities
 {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Vertex of a finite element in a 3-dimensional space. It can also represent points in 1-dimensional or 2-dimension 
 	/// spaces. Immutable.
@@ -47,15 +46,15 @@ namespace MGroup.MSolve.Discretization.Entities
 			var header = String.Format("{0}: ({1}, {2}, {3})", ID, X, Y, Z);
 			string constraintsDescripton = string.Empty;
 			//constraintsDescripton = constraintsDescripton.Length > 1
-			//	? constraintsDescripton.Substring(0, constraintsDescripton.Length - 2)
-			//	: constraintsDescripton;
+			//  ? constraintsDescripton.Substring(0, constraintsDescripton.Length - 2)
+			//  : constraintsDescripton;
 
 			return String.Format("{0}", header);
 		}
 
 		public Dictionary<int, IElementType> ElementsDictionary => elementsDictionary; //TODO: This should be IElement
 		public Dictionary<int, ISubdomain> NonMatchingSubdomainsDictionary => nonMatchingSubdomainsDictionary;
-		
+
 		public HashSet<int> Subdomains { get; } = new HashSet<int>();
 
 

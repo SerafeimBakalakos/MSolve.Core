@@ -1,7 +1,7 @@
-﻿using MGroup.MSolve.Geometry.Coordinates;
-
-namespace MGroup.MSolve.Numerics.Interpolation.Inverse
+﻿namespace MGroup.MSolve.Numerics.Interpolation.Inverse
 {
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Inverse mapping of an isoparametric interpolation, namely from global cartesian to natural (element local) coordinate 
 	/// system. In general these are computationally inefficient and inexact, beacuse they use iterative algorithms, with 

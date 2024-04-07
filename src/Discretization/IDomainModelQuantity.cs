@@ -1,7 +1,7 @@
-using MGroup.MSolve.Discretization.Dofs;
-
 namespace MGroup.MSolve.Discretization
 {
+	using MGroup.MSolve.Discretization.Dofs;
+
 	public interface IDomainModelQuantity<out T> where T : IDofType
 	{
 		T DOF { get; }

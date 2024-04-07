@@ -1,9 +1,7 @@
 namespace MGroup.MSolve.Discretization.Meshes.Manifolds
 {
-	using System;
 	using System.Collections.Generic;
 	using System.Diagnostics;
-	using System.Text;
 
 	/// <summary>
 	/// Represents a surface in a 3D space, using triangular cells.
@@ -17,7 +15,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Manifolds
 		/// <summary>
 		/// The triangles will have the same normal as the rectangle, which is n = ABxAC / |ABxAC|.
 		/// </summary>
-		public static TriangleMesh3D CreateForRectangle(double[] pointA, double[] pointB, double[] pointC, 
+		public static TriangleMesh3D CreateForRectangle(double[] pointA, double[] pointB, double[] pointC,
 			int numVerticesAlongAB, int numVerticesAlongAC)
 		{
 			Debug.Assert(numVerticesAlongAB >= 2);
@@ -42,6 +40,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Manifolds
 					{
 						vertex[d] = pointA[d] + i * dx[d] + j * dy[d];
 					}
+
 					mesh.Vertices.Add(vertex);
 				}
 			}

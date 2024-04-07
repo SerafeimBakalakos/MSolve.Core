@@ -1,9 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
-using MGroup.MSolve.DataStructures;
-
 namespace MGroup.MSolve.Constitutive
 {
+	using System.Collections.Generic;
+	using System.Linq;
+
+	using MGroup.MSolve.DataStructures;
+
 	/// <summary>
 	/// A generic state object for constitutive law state variables
 	/// </summary>

@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Discretization.Entities;
-using MGroup.MSolve.Numerics.Interpolation;
-using MGroup.MSolve.Numerics.Interpolation.Inverse;
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Geometry.Coordinates;
-using Xunit;
-
-namespace MGroup.MSolve.Numerics.Tests.Interpolation.Inverse
+﻿namespace MGroup.MSolve.Numerics.Tests.Interpolation.Inverse
 {
+	using System;
+	using System.Collections.Generic;
+	using MGroup.MSolve.Discretization.Entities;
+	using MGroup.MSolve.Numerics.Interpolation;
+	using MGroup.MSolve.Numerics.Interpolation.Inverse;
+	using MGroup.MSolve.DataStructures;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using Xunit;
+
 	public static class InverseInterpolationQuad4
 	{
 		private static readonly ValueComparer comparer = new ValueComparer(1E-10);
@@ -53,6 +53,7 @@ namespace MGroup.MSolve.Numerics.Tests.Interpolation.Inverse
 				double eta = -1.0 + rand.NextDouble() * 2.0;
 				randomPoints[i] = new NaturalPoint(xi, eta);
 			}
+
 			return randomPoints;
 		}
 

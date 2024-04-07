@@ -1,13 +1,12 @@
-using System.Collections.Generic;
-using MGroup.MSolve.DataStructures;
-
 namespace MGroup.MSolve.Discretization.Entities
 {
-    public interface ISubdomain
-    {
-        int ID { get; }
+	using System.Collections.Generic;
 
-        bool LinearSystemModified { get; set; }
+	public interface ISubdomain
+	{
+		int ID { get; }
+
+		bool LinearSystemModified { get; set; }
 
 		IEnumerable<IElementType> EnumerateElements();
 
@@ -15,8 +14,8 @@ namespace MGroup.MSolve.Discretization.Entities
 
 		int GetMultiplicityOfNode(int nodeID);
 
-  //      void ResetConstitutiveLawModified();
+		//      void ResetConstitutiveLawModified();
 
 		//void SaveConstitutiveLawState();
-    }
+	}
 }

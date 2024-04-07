@@ -1,8 +1,7 @@
-using MGroup.MSolve.AnalysisWorkflow.Transient;
-using MGroup.MSolve.Solution.LinearSystem;
-
 namespace MGroup.MSolve.AnalysisWorkflow.Providers
 {
+	using MGroup.MSolve.Solution.LinearSystem;
+
 	public interface INonTransientAnalysisProvider : IAnalyzerProvider
 	{
 		/// <summary>

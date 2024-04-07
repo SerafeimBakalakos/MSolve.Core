@@ -3,11 +3,11 @@
 //      differential equation.  
 namespace MGroup.MSolve.Discretization.Dofs
 {
-    /// <summary>
-    /// Tagging interface for degrees of freedom. Concrete implementations must be immutable.
-    /// Authors: Serafeim Bakalakos
-    /// </summary>
-    public interface IDofType
-    {
-    }
+	/// <summary>
+	/// Tagging interface for degrees of freedom. Concrete implementations must be immutable.
+	/// Authors: Serafeim Bakalakos
+	/// </summary>
+	public interface IDofType
+	{
+	}
 }
