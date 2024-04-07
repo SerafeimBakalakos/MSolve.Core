@@ -56,7 +56,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			this.elementNodeIdxOffsets = new int[numNodesPerElement][];
 			for (int n = 0; n < numNodesPerElement; ++n)
 			{
-				this.elementNodeIdxOffsets[elementNodeOrderPermutation[n]] = elementNodeIdxOffsetsDefault[n]; 
+				this.elementNodeIdxOffsets[elementNodeOrderPermutation[n]] = elementNodeIdxOffsetsDefault[n];
 			}
 		}
 
@@ -241,12 +241,12 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			private int firstNodeID;
 
 			/// <summary>
-			/// 
+			/// Initializes a new Builder for <see cref="UniformCartesianMesh2D"/>.
 			/// </summary>
-			/// <param name="minCoordinates"></param>
-			/// <param name="maxCoordinates"></param>
-			/// <param name="numElements">Array with 3 positive integers.</param>
-			public Builder(double[] minCoordinates, double[] maxCoordinates, int[] numElements) 
+			/// <param name="minCoordinates">The minimum x, y coordinates of all nodes.</param>
+			/// <param name="maxCoordinates">The maximum x, y coordinates of all nodes.</param>
+			/// <param name="numElements">Array with 2 positive integers: the number of elements along axes x, y.</param>
+			public Builder(double[] minCoordinates, double[] maxCoordinates, int[] numElements)
 			{
 				this.coordsMin = minCoordinates.Copy();
 				this.coordsMax = maxCoordinates.Copy();

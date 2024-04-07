@@ -17,7 +17,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 		private readonly int firstNodeID;
 		private readonly int firstElementID;
 
-		private UniformCartesianMesh3D(double[] minCoordinates, double[] maxCoordinates, int[] numElements, 
+		private UniformCartesianMesh3D(double[] minCoordinates, double[] maxCoordinates, int[] numElements,
 			int axisMajor, int axisMedium, int axisMinor, int[] elementNodeOrderPermutation, int firstNodeID, int firstElementID)
 		{
 			this.MinCoordinates = minCoordinates;
@@ -126,7 +126,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			CheckNodeIdx(nodeIdx);
 
 			// E.g. x-major, y-medium, z-minor: id = iX + iY * numNodesX + iZ * NumNodesX * NumNodesY
-			return firstNodeID + nodeIdx[axisMajor] + nodeIdx[axisMedium] * NumNodes[axisMajor] 
+			return firstNodeID + nodeIdx[axisMajor] + nodeIdx[axisMedium] * NumNodes[axisMajor]
 				+ nodeIdx[axisMinor] * NumNodes[axisMajor] * NumNodes[axisMedium];
 		}
 
@@ -270,11 +270,11 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			private bool isAxisMajorMinorDefault;
 
 			/// <summary>
-			/// 
+			/// Initializes a new Builder for <see cref="UniformCartesianMesh2D"/>.
 			/// </summary>
-			/// <param name="minCoordinates"></param>
-			/// <param name="maxCoordinates"></param>
-			/// <param name="numElements">Array with 3 positive integers.</param>
+			/// <param name="minCoordinates">The minimum x, y, z coordinates of all nodes.</param>
+			/// <param name="maxCoordinates">The maximum x, y, z coordinates of all nodes.</param>
+			/// <param name="numElements">Array with 3 positive integers: the number of elements along axes x, y, z.</param>
 			public Builder(double[] minCoordinates, double[] maxCoordinates, int[] numElements)
 			{
 				this.coordsMin = minCoordinates.Copy();
@@ -412,7 +412,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 				else
 				{
 					// Respect client decision
-					majorAxis = axisMajorChoice; 
+					majorAxis = axisMajorChoice;
 					minorAxis = axisMinorChoice;
 					if ((majorAxis == 0) && (minorAxis == 1)) mediumAxis = 2;
 					else if ((majorAxis == 0) && (minorAxis == 2)) mediumAxis = 1;
