@@ -226,5 +226,18 @@ namespace MGroup.MSolve.DataStructures
 			}
 			else return wholeRow.TryGetValue(col, out value);
 		}
+
+		public bool TryRemove(TRow row, TColumn col)
+		{
+			bool containsRow = this.data.TryGetValue(row, out ConcurrentDictionary<TColumn, TValue> wholeRow);
+			if (containsRow)
+			{
+				return wholeRow.TryRemove(col, out _);
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 }
