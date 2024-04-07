@@ -1,14 +1,14 @@
-using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation.Jacobians;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization.Entities;
-
 //TODO: In XFEM I used dictionaries with nodes as keys, but it is less efficient and offers little extra safety, since the
 //      shape functions and derivatives will be used by classes that have direct access to the nodes.
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System;
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation.Jacobians;
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization.Entities;
+
 	/// <summary>
 	/// Stores the shape functions, 1st order derivatives with respect to the global cartesian coordinates and the Jacobian
 	/// of an interpolation, evaluated at a certain natural point of a finite element. These quantities are needed in many 
@@ -74,6 +74,7 @@ namespace MGroup.MSolve.Numerics.Interpolation
 				x += val * node.X;
 				y += val * node.Y;
 			}
+
 			return new CartesianPoint(x, y);
 		}
 	}

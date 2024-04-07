@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace MGroup.MSolve.Discretization.Dofs
 {
+	using System.Collections.Generic;
+
 	public class ActiveDofs
 	{
 		private readonly Dictionary<int, IDofType> idsToDofs = new Dictionary<int, IDofType>();

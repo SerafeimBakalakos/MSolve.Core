@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using MGroup.MSolve.Solution.LinearSystem;
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Solution.AlgebraicModel
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.Solution.LinearSystem;
+	using MGroup.MSolve.Discretization;
+	using MGroup.MSolve.Discretization.Dofs;
+	using MGroup.MSolve.Discretization.Entities;
+
 	public interface IVectorValueExtractor
 	{
 		/// <summary>

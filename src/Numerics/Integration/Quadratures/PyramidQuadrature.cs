@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Integration;
-
-namespace MGroup.MSolve.Numerics.Integration.Quadratures
+﻿namespace MGroup.MSolve.Numerics.Integration.Quadratures
 {
-    /// <summary>
-    /// Enum class with the 3D integration rules for tetrahedra of varying orders. These are not tensor product of
-    /// simple <see cref="GaussLegendre1D_old"/> rules. Quadrature rules were provided in https://www.code-aster.org/V2/doc/v11/fr/man_r/r3/r3.01.01.pdf
-    /// Authors: Dimitris Tsapetis
-    /// </summary>
-    public sealed class PyramidQuadrature:IQuadrature3D
+	using System.Collections.Generic;
+
+	/// <summary>
+	/// Enum class with the 3D integration rules for tetrahedra of varying orders. These are not tensor product of
+	/// simple <see cref="GaussLegendre1D_old"/> rules. Quadrature rules were provided in https://www.code-aster.org/V2/doc/v11/fr/man_r/r3/r3.01.01.pdf
+	/// Authors: Dimitris Tsapetis
+	/// </summary>
+	public sealed class PyramidQuadrature : IQuadrature3D
 	{
 		public static readonly PyramidQuadrature Points5 = new PyramidQuadrature(
 			new GaussPoint(0.5, 0, 0.1531754163448146, 2.0 / 15.0),
@@ -28,10 +27,10 @@ namespace MGroup.MSolve.Numerics.Integration.Quadratures
 		// Find and implement missing quadratures.
 
 		private PyramidQuadrature(params GaussPoint[] points)
-	    {
-		    this.IntegrationPoints = new List<GaussPoint>(points);
-	    }
+		{
+			this.IntegrationPoints = new List<GaussPoint>(points);
+		}
 
-	    public IReadOnlyList<GaussPoint> IntegrationPoints { get; }
+		public IReadOnlyList<GaussPoint> IntegrationPoints { get; }
 	}
 }

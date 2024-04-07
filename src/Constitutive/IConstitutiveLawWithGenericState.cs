@@ -1,7 +1,7 @@
-using MGroup.MSolve.DataStructures;
-
 namespace MGroup.MSolve.Constitutive
 {
+	using MGroup.MSolve.DataStructures;
+
 	/// <summary>
 	/// Interface for constitutive laws to be adhered to, for spatial discretization (e.g.: FEM) that uses the GenericConstitutiveLawState object for holding its state
 	/// </summary>

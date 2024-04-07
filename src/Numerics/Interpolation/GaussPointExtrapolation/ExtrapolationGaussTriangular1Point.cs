@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
+﻿namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.DataStructures;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// Calculates extrapolations of scalar, vector and tensor fields from the integration points of symmetric Gauss quadrature
 	/// for triangles with 1 Gauss point. This can be done at any point, but utility methods for directly outputting the 
 	/// extrapolated fields at the nodes of finite elements are also provided. Note that since there is only 1 Gauss point,

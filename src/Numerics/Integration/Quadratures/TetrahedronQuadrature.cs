@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MGroup.MSolve.Numerics.Integration;
-
-namespace MGroup.MSolve.Numerics.Integration.Quadratures
+﻿namespace MGroup.MSolve.Numerics.Integration.Quadratures
 {
+	using System.Collections.Generic;
+
 	//TODO: Include theory.
 	/// <summary>
 	/// Enum class with the 2D integration rules for tetrahedra of varying orders. These are not tensor product of
 	/// simple <see cref="GaussLegendre1D_old"/> rules. Quadrature rules were provided in https://www.code-aster.org/V2/doc/v11/en/man_r/r3/r3.01.01.pdf
 	/// Authors: Dimitris Tsapetis
 	/// </summary>
-	public sealed class TetrahedronQuadrature:IQuadrature3D
+	public sealed class TetrahedronQuadrature : IQuadrature3D
 	{
 		public static readonly TetrahedronQuadrature Order1Point1 = new TetrahedronQuadrature(
 			new GaussPoint(1 / 4.0, 1 / 4.0, 1 / 4.0, 1 / 6.0));
@@ -51,11 +48,11 @@ namespace MGroup.MSolve.Numerics.Integration.Quadratures
 			new GaussPoint(0.443649167310371000000000, 0.056350832689629000000000, 0.443649167310371000000000, 0.00881834215167500000000000000),
 			new GaussPoint(0.443649167310371000000000, 0.443649167310371000000000, 0.056350832689629000000000, 0.00881834215167500000000000000));
 
-	    private TetrahedronQuadrature(params GaussPoint[] points)
-	    {
-		    this.IntegrationPoints = new List<GaussPoint>(points);
-	    }
+		private TetrahedronQuadrature(params GaussPoint[] points)
+		{
+			this.IntegrationPoints = new List<GaussPoint>(points);
+		}
 
-	    public IReadOnlyList<GaussPoint> IntegrationPoints { get; }
+		public IReadOnlyList<GaussPoint> IntegrationPoints { get; }
 	}
 }

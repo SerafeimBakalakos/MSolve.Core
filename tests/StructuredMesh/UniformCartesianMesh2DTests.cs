@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Discretization.Meshes.Output.VTK;
-using MGroup.MSolve.Discretization.Meshes.Structured;
-using Xunit;
-
-namespace MGroup.MSolve.Meshes.Tests.Structured
+﻿namespace MGroup.MSolve.Meshes.Tests.Structured
 {
+	using System;
+	using System.Collections.Generic;
+	using System.IO;
+	using System.Linq;
+
+	using MGroup.MSolve.Discretization;
+	using MGroup.MSolve.Discretization.Meshes.Output.VTK;
+	using MGroup.MSolve.Discretization.Meshes.Structured;
+
+	using Xunit;
+
 	public static class UniformCartesianMesh2DTests
 	{
 		//[Fact]
@@ -228,6 +228,7 @@ namespace MGroup.MSolve.Meshes.Tests.Structured
 			{
 				throw new NotImplementedException();
 			}
+
 			public int[] GetElementConnectivity(int[] elementIdx)
 			{
 				var elementNodes = new int[,][]

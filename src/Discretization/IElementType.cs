@@ -1,35 +1,36 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Discretization.BoundaryConditions;
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Discretization
 {
-    public enum ElementDimensions
-    {
-        Unknown = 0,
-        OneD = 1,
-        TwoD = 2,
-        ThreeD = 3
-    }
-     
-    public interface IElementType
-    {
-        int ID { get; set; }
-        IReadOnlyList<INode> Nodes { get; }
-        int SubdomainID { get; set; }
-        CellType CellType { get; }
-        IElementDofEnumerator DofEnumerator { get; set; }
-        IReadOnlyList<IReadOnlyList<IDofType>> GetElementDofTypes();
-        void SaveConstitutiveLawState(IHaveState externalState);
-        Tuple<double[], double[]> CalculateResponse(double[] localDisplacements);
-        double[] CalculateResponseIntegral();
-        double[] CalculateResponseIntegralForLogging(double[] localDisplacements);
-        IMatrix PhysicsMatrix();
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.DataStructures;
+	using MGroup.MSolve.Discretization.BoundaryConditions;
+	using MGroup.MSolve.Discretization.Dofs;
+	using MGroup.MSolve.Discretization.Entities;
+
+	public enum ElementDimensions
+	{
+		Unknown = 0,
+		OneD = 1,
+		TwoD = 2,
+		ThreeD = 3
+	}
+
+	public interface IElementType
+	{
+		int ID { get; set; }
+		IReadOnlyList<INode> Nodes { get; }
+		int SubdomainID { get; set; }
+		CellType CellType { get; }
+		IElementDofEnumerator DofEnumerator { get; set; }
+		IReadOnlyList<IReadOnlyList<IDofType>> GetElementDofTypes();
+		void SaveConstitutiveLawState(IHaveState externalState);
+		Tuple<double[], double[]> CalculateResponse(double[] localDisplacements);
+		double[] CalculateResponseIntegral();
+		double[] CalculateResponseIntegralForLogging(double[] localDisplacements);
+		IMatrix PhysicsMatrix();
 
 		public bool MapNodalBoundaryConditionsToElementVector(IEnumerable<INodalBoundaryCondition<IDofType>> nodalBoundaryConditions, double[] elementVector)
 		{
@@ -89,6 +90,7 @@ namespace MGroup.MSolve.Discretization
 					{
 						nodalValues.Add((node, dofs[n][d]), elementVector[idx]);
 					}
+
 					idx++;
 				}
 			}

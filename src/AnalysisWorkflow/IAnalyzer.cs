@@ -1,9 +1,9 @@
-using MGroup.MSolve.AnalysisWorkflow.Logging;
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Solution.LinearSystem;
-
 namespace MGroup.MSolve.AnalysisWorkflow
 {
+	using MGroup.MSolve.AnalysisWorkflow.Logging;
+	using MGroup.MSolve.DataStructures;
+	using MGroup.MSolve.Solution.LinearSystem;
+
 	public interface IAnalyzer : ICreateState
 	{
 		IAnalysisWorkflowLog[] Logs { get; }

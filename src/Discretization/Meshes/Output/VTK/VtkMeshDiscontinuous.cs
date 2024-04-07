@@ -1,14 +1,14 @@
-using System.Collections.Generic;
-
-using MGroup.MSolve.Discretization.Entities;
-
 //TODO: Also implement this logic but without dependencies on INode, IElement. It should work with the vertices and cells in
 //      IStructuredMesh. It should also offset the nodes of each element towards its centroid by a user defiend percent of the 
 //      original distance. This is crucial when inspecting 3D meshes, where it is impossible to discern where one Tet4 ends and 
 //      where the next begins.
 namespace MGroup.MSolve.Discretization.Meshes.Output.VTK
 {
-	public class VtkMeshDiscontinuous : IVtkMesh 
+	using System.Collections.Generic;
+
+	using MGroup.MSolve.Discretization.Entities;
+
+	public class VtkMeshDiscontinuous : IVtkMesh
 	{
 		public VtkMeshDiscontinuous(IReadOnlyList<INode> nodes, IReadOnlyList<IElementType> elements, int dimension = 3)
 		{
@@ -35,12 +35,15 @@ namespace MGroup.MSolve.Discretization.Meshes.Output.VTK
 					{
 						point = new VtkPoint(pointID++, node.X, node.Y, node.Z);
 					}
+
 					cellVertices[i] = point;
 					vtkPoints.Add(point);
 				}
+
 				var cell = new VtkCell(element.CellType, cellVertices);
 				vtkCells[e] = cell;
 			}
+
 			this.VtkPoints = vtkPoints;
 			this.VtkCells = vtkCells;
 		}

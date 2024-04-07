@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Numerics.Interpolation.Inverse
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization.Entities;
+
 	/// <summary>
 	/// Inverse mapping of the isoparametric interpolation of a quadrilateral finite element with 4 nodes. Since the original 
 	/// mapping is linear, there are analytic formulas, which are presented in
@@ -106,6 +106,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.Inverse
 			{
 				xi = IsWithinNaturalDomain(solutions[0]) ? solutions[0] : solutions[1];
 			}
+
 			double eta = (ad - ab * xi) / ac;
 			return new NaturalPoint(xi, eta);
 		}

@@ -1,9 +1,9 @@
-﻿using System;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
+﻿namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+	using System;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Calculates extrapolations of scalar , vector and tensor fields from the integration points of 2-by-2-by-2 Gauss-Legendre
 	/// quadrature. this can be done at any point , but utility methods for directly outputting the extrapolated fields at the

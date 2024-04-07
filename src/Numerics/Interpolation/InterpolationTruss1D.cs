@@ -1,17 +1,17 @@
-using System.Collections.Generic;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.LinearAlgebra.Vectors;
-using MGroup.MSolve.Numerics.Integration;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization.Entities;
-using System.Collections.Concurrent;
-
 // Truss nodes:
 // 0 -- 1
 
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System.Collections.Generic;
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.LinearAlgebra.Vectors;
+	using MGroup.MSolve.Numerics.Integration;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization.Entities;
+	using System.Collections.Concurrent;
+
 	/// <summary>
 	/// Isoparametric interpolation of a quadrilateral finite element with 4 nodes. Linear shape functions.
 	/// Implements Singleton pattern.

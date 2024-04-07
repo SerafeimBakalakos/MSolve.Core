@@ -1,13 +1,14 @@
-using System;
-using System.Collections.Generic;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Discretization.Entities;
-
 //TODO: use Matrix2by2 after benchmarking it.
 //TODO: once we know that an exception will be thrown, try to pinpoint the error: wrong node order, clockwise node order, the  
 //      element's shape is too distorted, midpoints are too close to corners in quadratic elements, etc...
 namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Discretization.Entities;
+
 	/// <summary>
 	/// This class encapsulates the determinant and inverse of the Jacobian matrix for a 2D isoparametric mapping.
 	/// Let f be a mapping: x \in R^2 -> f(x) \in R^2. The Jacobian matrix of the mapping is (in numerator layout): 
@@ -121,6 +122,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 				jacobianMatrix[1, 0] += N_xi * y;
 				jacobianMatrix[1, 1] += N_eta * y;
 			}
+
 			return jacobianMatrix;
 			//return Matrix2by2.CreateFromArray(J);
 		}

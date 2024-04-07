@@ -1,10 +1,10 @@
-using System;
-
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Discretization.Embedding
 {
+	using System;
+
+	using MGroup.MSolve.Discretization.Dofs;
+	using MGroup.MSolve.Discretization.Entities;
+
 	public class SuperElementDof
 	{
 		public IElementType Element { get; set; }

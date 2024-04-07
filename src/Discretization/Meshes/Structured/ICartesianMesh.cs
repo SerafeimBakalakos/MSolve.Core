@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-//TODO: Perhaps a similar interface for triangular structured meshes. The generalization of triangle is called simplex so perhaps 
-//      ISimplicialStructuredMesh. There is actually a lot of math behind these: https://en.wikipedia.org/wiki/Simplex.
 namespace MGroup.MSolve.Discretization.Meshes.Structured
 {
+	using System;
+
 	/// <summary>
 	/// Special case of structured mesh, where elements are quadrilaterals in 2D or hexahedrals in 3D.
 	/// </summary>
@@ -37,7 +33,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 				double xMin = MinCoordinates[d];
 				double dx = DistancesBetweenPoints[d];
 				elementIdx[d] = (int)Math.Floor((x - xMin) / dx);
-				
+
 				if (elementIdx[d] > NumElements[d])
 				{
 					throw new Exception($"Point ({globalCoords[0]}, {globalCoords[1]}, {globalCoords[2]}) is outside the mesh");

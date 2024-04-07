@@ -1,8 +1,4 @@
-﻿using System;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-// Quad9 nodes:
+﻿// Quad9 nodes:
 // 3 -- 6 -- 2
 // |    |    |
 // 7 -- 8 -- 5
@@ -15,6 +11,10 @@ using MGroup.MSolve.Geometry.Coordinates;
 //      the order by looking at GaussLegendre2D.Order3x3. When this is done, remove the warning from GaussLegendre2D
 namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+	using System;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Calculates extrapolations of scalar, vector and tensor fields from the integration points of 3-by-3 Gauss-Legendre 
 	/// quadrature. This can be done at any point, but utility methods for directly outputting the extrapolated fields at the

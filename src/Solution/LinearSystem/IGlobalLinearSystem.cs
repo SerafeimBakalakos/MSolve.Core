@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-
 namespace MGroup.MSolve.Solution.LinearSystem
 {
+	using System.Collections.Generic;
+
 	/// <summary>
 	/// A system of linear equations. It consists of a square matrix, a right hand side vector and a solution (or left 
 	/// hand side) vector. In general objects implementing IAnalyzer determine the matrix and right hand side vector,  

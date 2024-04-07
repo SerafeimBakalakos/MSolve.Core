@@ -1,15 +1,15 @@
-﻿using System.Collections.Generic;
-using MGroup.MSolve.DataStructures;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Geometry.Coordinates;
-
-//TODO: Perhaps I should use dictionaries for matching input and output at nodes or at least gauss points.
+﻿//TODO: Perhaps I should use dictionaries for matching input and output at nodes or at least gauss points.
 //TODO: Perhaps I should use generic methods when the same thing is done for scalar, vector, tensor fields. However that would 
 //      complicate the interface only to avoid a few lines of boilerplate code.
 //TODO: prevent triangular quadratures from accessing quadrilateral nodes and vice-versa
 //TODO: cache the shape functions at the nodes.
 namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.DataStructures;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Geometry.Coordinates;
+
 	/// <summary>
 	/// Basic implementation of <see cref="IGaussPointExtrapolation2D"/>.
 	/// Authors: Serafeim Bakalakos
@@ -46,6 +46,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 			{
 				scalar += extrapolationFunctions[gp] * scalarsAtGaussPoints[gp];
 			}
+
 			return scalar;
 		}
 
@@ -67,8 +68,10 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 				{
 					scalar += nodalExtrapolationFunctions[i][gp] * scalarsAtGaussPoints[gp];
 				}
+
 				nodalScalars[i] = scalar;
 			}
+
 			return nodalScalars;
 		}
 
@@ -85,6 +88,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 				tensor[1] += extrapolationFunctions[gp] * tensorsAtGaussPoints[gp][1];
 				tensor[2] += extrapolationFunctions[gp] * tensorsAtGaussPoints[gp][2];
 			}
+
 			return tensor;
 		}
 
@@ -101,6 +105,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 				tensor[1] += extrapolationFunctions[gp] * tensorsAtGaussPoints[gp].YY;
 				tensor[2] += extrapolationFunctions[gp] * tensorsAtGaussPoints[gp].XY;
 			}
+
 			return new Tensor2D(tensor[0], tensor[1], tensor[2]);
 		}
 
@@ -124,8 +129,10 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 					tensor[1] += nodalExtrapolationFunctions[i][gp] * tensorsAtGaussPoints[gp][1];
 					tensor[2] += nodalExtrapolationFunctions[i][gp] * tensorsAtGaussPoints[gp][2];
 				}
+
 				nodalTensors[i] = tensor;
 			}
+
 			return nodalTensors;
 		}
 
@@ -149,8 +156,10 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 					tensor[1] += nodalExtrapolationFunctions[i][gp] * tensorsAtGaussPoints[gp].YY;
 					tensor[2] += nodalExtrapolationFunctions[i][gp] * tensorsAtGaussPoints[gp].XY;
 				}
+
 				nodalTensors[i] = new Tensor2D(tensor[0], tensor[1], tensor[2]);
 			}
+
 			return nodalTensors;
 		}
 
@@ -166,6 +175,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 				vector[0] += extrapolationFunctions[gp] * vectorsAtGaussPoints[gp][0];
 				vector[1] += extrapolationFunctions[gp] * vectorsAtGaussPoints[gp][1];
 			}
+
 			return vector;
 		}
 
@@ -188,8 +198,10 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 					vector[0] += nodalExtrapolationFunctions[i][gp] * vectorsAtGaussPoints[gp][0];
 					vector[1] += nodalExtrapolationFunctions[i][gp] * vectorsAtGaussPoints[gp][1];
 				}
+
 				nodalVectors[i] = vector;
 			}
+
 			return nodalVectors;
 		}
 
@@ -214,8 +226,10 @@ namespace MGroup.MSolve.Numerics.Interpolation.GaussPointExtrapolation
 				{
 					nodalExtrapolationFunctions[i] = EvaluateExtrapolationFunctionsAt(nodes[i]);
 				}
+
 				cachedExtrapolationFunctionsAtNodes.Add(interpolation, nodalExtrapolationFunctions);
 			}
+
 			return nodalExtrapolationFunctions;
 		}
 	}

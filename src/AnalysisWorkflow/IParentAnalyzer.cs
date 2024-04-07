@@ -1,6 +1,5 @@
 namespace MGroup.MSolve.AnalysisWorkflow
 {
-	using System.Collections;
 	using System.Collections.Generic;
 
 	using MGroup.LinearAlgebra.Iterative;

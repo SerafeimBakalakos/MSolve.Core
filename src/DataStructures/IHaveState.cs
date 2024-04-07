@@ -1,7 +1,7 @@
 namespace MGroup.MSolve.DataStructures
 {
-    public interface IHaveState
-    {
+	public interface IHaveState
+	{
 		void RestoreState();
 	}
 }

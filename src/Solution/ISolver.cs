@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Solution.LinearSystem;
-
 //TODO: perhaps the solver should expose the assembler, instead of wrapping it. The assembler's interface would have to be 
 //      simplified a bit though. That would violate LoD, but so does MSolve in general.
 namespace MGroup.MSolve.Solution
 {
+	using MGroup.MSolve.Solution.LinearSystem;
+
 	/// <summary>
 	/// Helps translate the physical model into a linear system and then solves the latter. 
 	/// </summary>
@@ -28,7 +26,7 @@ namespace MGroup.MSolve.Solution
 		/// could potentially perform actions that must not be repeated or are too expensive.
 		/// </summary>
 		void Initialize();
-		
+
 		/// <summary>
 		/// Notifies this <see cref="ISolver"/> that it cannot overwrite the data of <see cref="IGlobalLinearSystem.Matrix"/>.
 		/// Some solvers would otherwise overwrite the matrices (e.g. with the factorization) to avoid using extra memory.

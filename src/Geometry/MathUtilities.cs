@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-
 namespace MGroup.MSolve.Geometry
-{ 
-    public static class MathUtilities
-    {
-        private static readonly double TOLERANCE = 1.0e-6;
+{
+	using System;
+	using System.Collections.Generic;
+
+	public static class MathUtilities
+	{
+		private static readonly double TOLERANCE = 1.0e-6;
 
 		public static int IndexOfMinAbs(IReadOnlyList<double> values)
 		{
@@ -20,6 +20,7 @@ namespace MGroup.MSolve.Geometry
 					pos = i;
 				}
 			}
+
 			return pos;
 		}
 
@@ -42,6 +43,7 @@ namespace MGroup.MSolve.Geometry
 			{
 				modulus = -Math.PI + excess;
 			}
+
 			return modulus;
 		}
 

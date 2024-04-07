@@ -1,10 +1,10 @@
-using MGroup.MSolve.AnalysisWorkflow.Transient;
-using MGroup.MSolve.Solution.LinearSystem;
-
 //TODO: Perhaps the providers should not hold references to the linear systems. Instead they would return vectors/matrices to
 //      the analyzers (or the vectors/matrices would be passed in and overwritten).
 namespace MGroup.MSolve.AnalysisWorkflow.Providers
 {
+	using MGroup.MSolve.AnalysisWorkflow.Transient;
+	using MGroup.MSolve.Solution.LinearSystem;
+
 	public interface ITransientAnalysisProvider : IAnalyzerProvider
 	{
 		DifferentiationOrder ProblemOrder { get; }

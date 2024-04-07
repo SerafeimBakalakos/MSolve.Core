@@ -1,34 +1,32 @@
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Discretization.Meshes.Output.VTK
 {
-    /// <summary>
-    /// Vertex used to represent VTK grids.
-    /// Authors: Serafeim Bakalakos
-    /// </summary>
-    public class VtkPoint
-    {
-        public VtkPoint(int id, double x, double y = 0, double z = 0)
-        {
-            this.ID = id;
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
-        }
+	using MGroup.MSolve.Discretization.Entities;
 
-        public VtkPoint(int id, INode node)
-        {
-            this.ID = id;
-            this.X = node.X;
-            this.Y = node.Y;
-            this.Z = node.Z;
-        }
+	/// <summary>
+	/// Vertex used to represent VTK grids.
+	/// </summary>
+	public class VtkPoint
+	{
+		public VtkPoint(int id, double x, double y = 0, double z = 0)
+		{
+			this.ID = id;
+			this.X = x;
+			this.Y = y;
+			this.Z = z;
+		}
 
-        public int ID { get; }
+		public VtkPoint(int id, INode node)
+		{
+			this.ID = id;
+			this.X = node.X;
+			this.Y = node.Y;
+			this.Z = node.Z;
+		}
 
-        public double X { get; }
-        public double Y { get; }
-        public double Z { get; }
-    }
+		public int ID { get; }
+
+		public double X { get; }
+		public double Y { get; }
+		public double Z { get; }
+	}
 }

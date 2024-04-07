@@ -1,11 +1,12 @@
-using System;
-using System.Collections.Generic;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Discretization.Entities;
-
 //TODO: Use Matrix3by3 after benchmarking it.
 namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Discretization.Entities;
+
 	/// <summary>
 	/// This class encapsulates the determinant and inverse of the Jacobian matrix for a 3D isoparametric mapping.
 	/// Let f be a mapping: x \in R^3 -> f(x) \in R^3. The Jacobian matrix of the mapping is (in numerator layout): 

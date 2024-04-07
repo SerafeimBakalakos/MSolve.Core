@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Discretization.Providers;
-using MGroup.MSolve.Solution.LinearSystem;
-
 namespace MGroup.MSolve.Solution.AlgebraicModel
 {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.MSolve.Discretization;
+	using MGroup.MSolve.Discretization.Dofs;
+	using MGroup.MSolve.Discretization.Providers;
+	using MGroup.MSolve.Solution.LinearSystem;
+
 	public interface IGlobalVectorAssembler
 	{
 		IGlobalVector CreateZeroVector();

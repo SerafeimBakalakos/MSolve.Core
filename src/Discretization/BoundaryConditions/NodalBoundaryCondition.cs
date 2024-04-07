@@ -1,8 +1,8 @@
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Discretization.BoundaryConditions
 {
+	using MGroup.MSolve.Discretization.Dofs;
+	using MGroup.MSolve.Discretization.Entities;
+
 	public class NodalBoundaryCondition : INodalBoundaryCondition<IDofType>
 	{
 		public IDofType DOF { get; }
@@ -15,7 +15,7 @@ namespace MGroup.MSolve.Discretization.BoundaryConditions
 		{
 			this.Node = node;
 			this.DOF = dof;
-			this.Amount	= amount;
+			this.Amount = amount;
 		}
 
 		public INodalBoundaryCondition<IDofType> WithAmount(double amount) => new NodalBoundaryCondition(Node, DOF, amount);

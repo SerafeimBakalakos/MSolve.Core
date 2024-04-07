@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 //TODO: Eventually this should be joined with IVector and be in MGroup.LinearAlgebra project
 namespace MGroup.MSolve.Solution.LinearSystem
 {
+	using System;
+
 	public interface IGlobalVector
 	{
 		public bool CheckForCompatibility { get; set; }

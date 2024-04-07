@@ -1,33 +1,34 @@
-﻿using System;
-using MGroup.MSolve.Geometry.Coordinates;
-
-namespace MGroup.MSolve.Geometry.Shapes
+﻿namespace MGroup.MSolve.Geometry.Shapes
 {
-    public enum CirclePointPosition
-    {
-        Inside, On, Outside
-    }
+	using System;
 
-    public class Circle2D
-    {
-        public CartesianPoint Center { get; }
-        public double Radius { get; }
+	using MGroup.MSolve.Geometry.Coordinates;
 
-        public Circle2D(CartesianPoint center, double radius)
-        {
-            this.Center = new CartesianPoint(center.X, center.Y); // Copy it for extra safety
-            this.Radius = radius;
-        }
+	public enum CirclePointPosition
+	{
+		Inside, On, Outside
+	}
 
-        public CirclePointPosition FindRelativePositionOfPoint(CartesianPoint point)
-        {
-            double distanceX = point.X - Center.X;
-            double distanceY = point.Y - Center.Y;
-            double distance = Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
+	public class Circle2D
+	{
+		public CartesianPoint Center { get; }
+		public double Radius { get; }
 
-            if (distance > Radius) return CirclePointPosition.Outside;
-            else if (distance < Radius) return CirclePointPosition.Inside;
-            else return CirclePointPosition.On;
-        }
-    }
+		public Circle2D(CartesianPoint center, double radius)
+		{
+			this.Center = new CartesianPoint(center.X, center.Y); // Copy it for extra safety
+			this.Radius = radius;
+		}
+
+		public CirclePointPosition FindRelativePositionOfPoint(CartesianPoint point)
+		{
+			double distanceX = point.X - Center.X;
+			double distanceY = point.Y - Center.Y;
+			double distance = Math.Sqrt(distanceX * distanceX + distanceY * distanceY);
+
+			if (distance > Radius) return CirclePointPosition.Outside;
+			else if (distance < Radius) return CirclePointPosition.Inside;
+			else return CirclePointPosition.On;
+		}
+	}
 }

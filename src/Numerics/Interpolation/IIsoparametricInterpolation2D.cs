@@ -1,15 +1,15 @@
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation.Inverse;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Discretization.Entities;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization;
-
 //TODO: perhaps I should return lists instead of Dictionaries with Gauss points as keys. It would be faster. The order of GPs is
 //      defined by the interpolation anyway.
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation.Inverse;
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Discretization.Entities;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization;
+
 	/// <summary>
 	/// Interpolation (or shape or basis) functions used by isoparametric finite elements. Instances are able to compute the 
 	/// values of the shape functions, their derivatives, the Jacobian of the matrix, etc.

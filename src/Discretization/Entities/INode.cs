@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
-
 namespace MGroup.MSolve.Discretization.Entities
 {
-    public interface INode : IDiscretePoint, IComparable<INode>
-    {
+	using System;
+	using System.Collections.Generic;
+
+	public interface INode : IDiscretePoint, IComparable<INode>
+	{
 		double X { get; }
 		double Y { get; }
 		double Z { get; }
@@ -12,5 +12,5 @@ namespace MGroup.MSolve.Discretization.Entities
 		Dictionary<int, IElementType> ElementsDictionary { get; }
 
 		HashSet<int> Subdomains { get; }
-    }
+	}
 }

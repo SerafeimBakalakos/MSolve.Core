@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.Tests.Commons;
-using Xunit;
-
 namespace MGroup.MSolve.Numerics.Tests.Interpolation
 {
+	using System;
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.Tests.Commons;
+	using Xunit;
+
 	/// <summary>
 	/// Unit testing implementations of <see cref="IIsoparametricInterpolation3D_OLD"/>
 	/// </summary>

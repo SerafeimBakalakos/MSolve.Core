@@ -1,11 +1,3 @@
-using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation.Inverse;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Discretization.Entities;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization;
-
 // Quad9 nodes:
 // 3 -- 6 -- 2
 // |    |    |
@@ -15,6 +7,14 @@ using MGroup.MSolve.Discretization;
 
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System;
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation.Inverse;
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Discretization.Entities;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization;
+
 	/// <summary>
 	/// Isoparametric interpolation of a quadrilateral finite element with 9 nodes. Quadratic shape functions. 
 	/// Implements Singleton pattern.

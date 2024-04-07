@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using MGroup.MSolve.Discretization.Meshes;
-
-//TODOMesh: allow reordering e.g. for Hexa8
+﻿//TODOMesh: allow reordering e.g. for Hexa8
 namespace MGroup.MSolve.Discretization.Meshes.Output.VTK
 {
+	using System.Collections.Generic;
+	using System.Linq;
+
 	public static class VtkCellTypes
 	{
-		private static readonly IReadOnlyDictionary<CellType, int> cellTypeCodes = 
+		private static readonly IReadOnlyDictionary<CellType, int> cellTypeCodes =
 			new Dictionary<CellType, int>
 			{
 				{ CellType.Line2, 3 },

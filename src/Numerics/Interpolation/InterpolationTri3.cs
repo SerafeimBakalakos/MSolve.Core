@@ -1,11 +1,3 @@
-using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation.Inverse;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Discretization;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization.Entities;
-
 // Tri3 nodes:
 // 1
 // |  \
@@ -14,6 +6,14 @@ using MGroup.MSolve.Discretization.Entities;
 //TODO: See https://www.colorado.edu/engineering/CAS/courses.d/IFEM.d/IFEM.Ch24.d/IFEM.Ch24.pdf for optimizations
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System;
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation.Inverse;
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Discretization;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization.Entities;
+
 	/// <summary>
 	/// Isoparametric interpolation of a triangular finite element with 3 nodes. Linear shape functions. 
 	/// Implements Singleton pattern.

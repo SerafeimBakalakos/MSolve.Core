@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace MGroup.MSolve.Discretization.Meshes.Structured
 {
+	using System;
+
 	public static class Extensions
 	{
 		public static bool AreContiguousUniqueIndices(this int[] numbers)

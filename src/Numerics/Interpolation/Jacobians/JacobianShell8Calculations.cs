@@ -1,12 +1,13 @@
-using System;
-using System.Collections.Generic;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Discretization.Entities;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-
 //J_0a and ll1 can only be calculated during initialization (at the first configuration) and then cached
 namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Discretization.Entities;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+
 	public class JacobianShell8Calculations
 	{
 		public static (double[][,] ll1, double[][,] J_0a)
@@ -228,6 +229,7 @@ namespace MGroup.MSolve.Numerics.Interpolation.Jacobians
 
 				}
 			}
+
 			return J_1;
 		}
 

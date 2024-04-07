@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace MGroup.MSolve.Solution.Exceptions
 {
+	using System;
+
 	public class InvalidLinearSystemFormat : ArgumentException
 	{
 		public InvalidLinearSystemFormat()

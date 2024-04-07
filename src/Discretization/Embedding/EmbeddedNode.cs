@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-
-using MGroup.MSolve.Discretization.Dofs;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Discretization.Embedding
 {
+	using System;
+	using System.Collections.Generic;
+
+	using MGroup.MSolve.Discretization.Dofs;
+	using MGroup.MSolve.Discretization.Entities;
+
 	public class EmbeddedNode
 	{
 		private readonly INode node;

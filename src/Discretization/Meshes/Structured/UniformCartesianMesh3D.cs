@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using MGroup.MSolve.Discretization.Meshes;
-
 namespace MGroup.MSolve.Discretization.Meshes.Structured
 {
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+
 	public class UniformCartesianMesh3D : ICartesianMesh
 	{
 		private const int dim = 3;
@@ -19,7 +17,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 		private readonly int firstNodeID;
 		private readonly int firstElementID;
 
-		private UniformCartesianMesh3D(double[] minCoordinates, double[] maxCoordinates, int[] numElements, 
+		private UniformCartesianMesh3D(double[] minCoordinates, double[] maxCoordinates, int[] numElements,
 			int axisMajor, int axisMedium, int axisMinor, int[] elementNodeOrderPermutation, int firstNodeID, int firstElementID)
 		{
 			this.MinCoordinates = minCoordinates;
@@ -128,7 +126,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			CheckNodeIdx(nodeIdx);
 
 			// E.g. x-major, y-medium, z-minor: id = iX + iY * numNodesX + iZ * NumNodesX * NumNodesY
-			return firstNodeID + nodeIdx[axisMajor] + nodeIdx[axisMedium] * NumNodes[axisMajor] 
+			return firstNodeID + nodeIdx[axisMajor] + nodeIdx[axisMedium] * NumNodes[axisMajor]
 				+ nodeIdx[axisMinor] * NumNodes[axisMajor] * NumNodes[axisMedium];
 		}
 
@@ -156,6 +154,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				coords[d] = MinCoordinates[d] + nodeIdx[d] * dx[d];
 			}
+
 			return coords;
 		}
 
@@ -211,6 +210,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				throw new ArgumentException($"Element index must be an array with Length = {dim}");
 			}
+
 			for (int d = 0; d < dim; ++d)
 			{
 				if ((elementIdx[d] < 0) || (elementIdx[d] >= NumElements[d]))
@@ -237,6 +237,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			{
 				throw new ArgumentException($"Node index must be an array with Length = {dim}");
 			}
+
 			for (int d = 0; d < dim; ++d)
 			{
 				if ((nodeIdx[d] < 0) || (nodeIdx[d] >= NumNodes[d]))
@@ -269,11 +270,11 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 			private bool isAxisMajorMinorDefault;
 
 			/// <summary>
-			/// 
+			/// Initializes a new Builder for <see cref="UniformCartesianMesh2D"/>.
 			/// </summary>
-			/// <param name="minCoordinates"></param>
-			/// <param name="maxCoordinates"></param>
-			/// <param name="numElements">Array with 3 positive integers.</param>
+			/// <param name="minCoordinates">The minimum x, y, z coordinates of all nodes.</param>
+			/// <param name="maxCoordinates">The maximum x, y, z coordinates of all nodes.</param>
+			/// <param name="numElements">Array with 3 positive integers: the number of elements along axes x, y, z.</param>
 			public Builder(double[] minCoordinates, double[] maxCoordinates, int[] numElements)
 			{
 				this.coordsMin = minCoordinates.Copy();
@@ -411,7 +412,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 				else
 				{
 					// Respect client decision
-					majorAxis = axisMajorChoice; 
+					majorAxis = axisMajorChoice;
 					minorAxis = axisMinorChoice;
 					if ((majorAxis == 0) && (minorAxis == 1)) mediumAxis = 2;
 					else if ((majorAxis == 0) && (minorAxis == 2)) mediumAxis = 1;
@@ -421,6 +422,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					else if ((majorAxis == 2) && (minorAxis == 1)) mediumAxis = 0;
 					else throw new ArgumentException("Major and minors axes must be 0, 1 or 2 and different from each other");
 				}
+
 				return (majorAxis, mediumAxis, minorAxis);
 			}
 
@@ -455,6 +457,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					bool removedEntry = entries.Remove((min, axisOfMin));
 					Debug.Assert(removedEntry);
 				}
+
 				return sortedAxes;
 			}
 
@@ -491,6 +494,7 @@ namespace MGroup.MSolve.Discretization.Meshes.Structured
 					throw new ArgumentException("The provided permutation array for the order of nodes in each element" +
 						$" must have {numNodesPerElement} entries");
 				}
+
 				if (!elementNodeOrderPermutation.AreContiguousUniqueIndices())
 				{
 					throw new ArgumentException("Invalid permutation array for the order of nodes in each element." +

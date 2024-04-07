@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using MGroup.LinearAlgebra.Vectors;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization.Entities;
-
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System;
+	using System.Collections.Generic;
+	using MGroup.LinearAlgebra.Vectors;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization.Entities;
+
 	/// <summary>
 	/// Authors: Serafeim Bakalakos, Dimitris Tsapetis
 	/// </summary>
@@ -25,6 +25,7 @@ namespace MGroup.MSolve.Numerics.Interpolation
 				x += val * node.X;
 				y += val * node.Y;
 			}
+
 			return new CartesianPoint(x, y);
 		}
 

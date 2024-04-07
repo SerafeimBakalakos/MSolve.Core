@@ -1,15 +1,15 @@
-using System;
-using System.Collections.Generic;
-using MGroup.MSolve.Numerics.Interpolation.Inverse;
-using MGroup.LinearAlgebra.Matrices;
-using MGroup.MSolve.Numerics.Integration.Quadratures;
-using MGroup.MSolve.Discretization.Entities;
-using MGroup.MSolve.Geometry.Coordinates;
-using MGroup.MSolve.Discretization;
-using System.Collections.Concurrent;
-
 namespace MGroup.MSolve.Numerics.Interpolation
 {
+	using System;
+	using System.Collections.Generic;
+	using MGroup.MSolve.Numerics.Interpolation.Inverse;
+	using MGroup.LinearAlgebra.Matrices;
+	using MGroup.MSolve.Numerics.Integration.Quadratures;
+	using MGroup.MSolve.Discretization.Entities;
+	using MGroup.MSolve.Geometry.Coordinates;
+	using MGroup.MSolve.Discretization;
+	using System.Collections.Concurrent;
+
 	public class InterpolationShell8Cohesive : IsoparametricInterpolation2DBase
 	{
 		private static readonly InterpolationShell8Cohesive uniqueInstance = new InterpolationShell8Cohesive();
@@ -21,8 +21,8 @@ namespace MGroup.MSolve.Numerics.Interpolation
 			cachedN3AtGPs = new ConcurrentDictionary<IQuadrature2D, IReadOnlyList<Matrix>>();
 			NodalNaturalCoordinates = new NaturalPoint[]
 			{
-                //TODO: validate this
-                new NaturalPoint(1, 1),
+				//TODO: validate this
+				new NaturalPoint(1, 1),
 				new NaturalPoint(-1, 1),
 				new NaturalPoint(-1, -1),
 				new NaturalPoint(1, -1),
@@ -32,6 +32,7 @@ namespace MGroup.MSolve.Numerics.Interpolation
 				new NaturalPoint(1, 0)
 			};
 		}
+
 		public override IReadOnlyList<NaturalPoint> NodalNaturalCoordinates { get; }
 
 		public static InterpolationShell8Cohesive UniqueInstance => uniqueInstance;
@@ -121,8 +122,10 @@ namespace MGroup.MSolve.Numerics.Interpolation
 				{
 					for (int m = 0; m < 8; m++) N3gp[l, l + 3 * m] = N1[npoint][m];
 				}
+
 				N3[npoint] = N3gp;
 			}
+
 			return N3;
 		}
 	}
