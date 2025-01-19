@@ -5,7 +5,7 @@
 	//TODO: Include theory.
 	/// <summary>
 	/// Enum class with the 2D integration rules for tetrahedra of varying orders. These are not tensor product of
-	/// simple <see cref="GaussLegendre1D_old"/> rules. Quadrature rules were provided in https://www.code-aster.org/V2/doc/v11/en/man_r/r3/r3.01.01.pdf
+	/// simple <see cref="GaussLegendre1D_old"/> rules. Quadrature rules were provided in https://biba1632.gitlab.io/code-aster-manuals/docs/reference/r3.01.01.html#id2
 	/// Authors: Dimitris Tsapetis
 	/// </summary>
 	public sealed class TetrahedronQuadrature : IQuadrature3D
