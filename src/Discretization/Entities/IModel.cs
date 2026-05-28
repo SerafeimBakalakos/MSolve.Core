@@ -19,6 +19,9 @@ namespace MGroup.MSolve.Discretization.Entities
 		//      and IElementVectorContributor: IElementBasedEntity and always access them inside IEnumerable<>. 
 		//      This will completely decouple model from subdomains, at least when all entities live in the same machine.
 		IEnumerable<IElementType> EnumerateElements(int subdomainID);
+
+		IEnumerable<IElementType> EnumerateElements_v2();
+
 		IEnumerable<ISubdomain> EnumerateSubdomains();
 		INode GetNode(int nodeID);
 		ISubdomain GetSubdomain(int subdomainID);

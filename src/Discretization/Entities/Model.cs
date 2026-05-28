@@ -37,10 +37,13 @@ namespace MGroup.MSolve.Discretization.Entities
 
 		public IEnumerable<IBoundaryConditionSet<IDofType>> EnumerateBoundaryConditions(int subdomainID) =>
 			BoundaryConditions.Select(x => x.CreateBoundaryConditionSetOfSubdomain(SubdomainsDictionary[subdomainID]));
+
 		public IEnumerable<IInitialConditionSet<IDofType>> EnumerateInitialConditions(int subdomainID) =>
 			InitialConditions.Select(x => x.CreateInitialConditionSetOfSubdomain(SubdomainsDictionary[subdomainID]));
 
 		public IEnumerable<IElementType> EnumerateElements(int subdomainID) => SubdomainsDictionary[subdomainID].Elements;
+
+		public IEnumerable<IElementType> EnumerateElements() => ElementsDictionary.Values;
 
 		public IEnumerable<INode> EnumerateNodes() => NodesDictionary.Values;
 
